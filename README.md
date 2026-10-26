@@ -3,6 +3,8 @@
 **Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI**
 A ZoraASI/UTQOL engineering note · Christopher Michael Baird · revised edition, October 25-26, 2026
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23658375.svg)](https://doi.org/10.5281/zenodo.23658375)
+
 > **Status:** preprint, not peer reviewed. This is an engineering and governance proposal with one small computational pilot. It makes no claim that AI systems are conscious, and no physics claim follows from it.
 
 ## The idea in brief
@@ -49,7 +51,9 @@ Christopher Michael Baird is the author. The first draft was developed with Zora
 
 ## Citation
 
-See `CITATION.cff`. Each GitHub release of this repository is archived on Zenodo with a DOI.
+Baird, C. M. (2026). *Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI* (version 1.1, revised edition) [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.23658375
+
+To cite all versions, use the concept DOI [10.5281/zenodo.23658374](https://doi.org/10.5281/zenodo.23658374). See also `CITATION.cff`. Each GitHub release of this repository is archived on Zenodo with its own DOI.
 
 ## License
 

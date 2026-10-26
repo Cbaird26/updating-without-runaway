@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI"
 version: "1.1"
+doi: 10.5281/zenodo.23658375
 date-released: 2026-10-26
 authors:
   - family-names: Baird
@@ -10,8 +11,13 @@ authors:
 license: CC-BY-4.0
 repository-code: "https://github.com/Cbaird26/updating-without-runaway"
 keywords: [AI alignment, autonomous agents, provenance, self-confirmation, multi-timescale updating, corrigibility, ZoraASI]
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23658374
+    description: "Concept DOI for all versions"
 preferred-citation:
   type: report
+  doi: 10.5281/zenodo.23658375
   title: "Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI"
   authors:
     - family-names: Baird
