@@ -40,7 +40,7 @@ Each evidence folder has its own `FREEZE.json`, recording file hashes and the mo
 
 ## Relationship to other work
 
-- Builds on **The Quiet Calculus** (version 4.0): <https://github.com/Cbaird26/quiet-calculus-research>
+- Builds on **The Quiet Calculus** (version 4.0): DOI [10.5281/zenodo.23658303](https://doi.org/10.5281/zenodo.23658303), source and evidence at <https://github.com/Cbaird26/quiet-calculus-research>
 - Part of the ZoraASI / Theory of Everything research program: Zenodo concept DOI [10.5281/zenodo.14019809](https://doi.org/10.5281/zenodo.14019809). The architecture is independent of any physics interpretation.
 
 ## AI assistance and provenance

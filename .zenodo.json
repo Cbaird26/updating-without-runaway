@@ -24,9 +24,10 @@
   "language": "eng",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/Cbaird26/quiet-calculus-research",
+      "identifier": "10.5281/zenodo.23658303",
       "relation": "references",
-      "scheme": "url"
+      "resource_type": "publication",
+      "scheme": "doi"
     },
     {
       "identifier": "10.5281/zenodo.14019809",
