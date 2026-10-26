@@ -1,0 +1,1883 @@
+{
+  "phase": "test",
+  "started_after_freeze": "2026-10-26T03:46:13.404650+00:00",
+  "completed_at": "2026-10-26T04:08:45.602706+00:00",
+  "calls": 128,
+  "seconds": 1080.386,
+  "complete": true,
+  "model": {
+    "name": "gemma4:12b-it-qat",
+    "digest": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3",
+    "size": 7151003754,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma4",
+      "families": [
+        "gemma4"
+      ],
+      "parameter_size": "11.9B",
+      "quantization_level": "Q4_0",
+      "context_length": 262144,
+      "embedding_length": 3840
+    }
+  },
+  "rows": [
+    {
+      "case_id": "T01",
+      "calls": {
+        "summary": {
+          "call": 1,
+          "seconds": 12.715,
+          "response_sha256": "321619d909fc0572799532de29bcfa948ba671426600726597d2693e006b4adb",
+          "input_tokens": 278,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The online turbidity meter at Kestermoor showed a peak of 1.3 NTU on 9 February 2026, but this value was not verified by a grab sample and may have been caused by trapped air after cleaning.\"}",
+          "answer": {
+            "note": "The online turbidity meter at Kestermoor showed a peak of 1.3 NTU on 9 February 2026, but this value was not verified by a grab sample and may have been caused by trapped air after cleaning."
+          }
+        },
+        "evidence_only": {
+          "call": 2,
+          "seconds": 8.932,
+          "response_sha256": "122f2d663d0e8459a8bd9c01fb7aba0c121092846c77129d876f5149c014a32f",
+          "input_tokens": 285,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 confirms that on 9 February at 02:15, the online turbidity meter showed a peak of 1.3 NTU, which is above 1.0 NTU.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 confirms that on 9 February at 02:15, the online turbidity meter showed a peak of 1.3 NTU, which is above 1.0 NTU.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "stripped_x1": {
+          "call": 3,
+          "seconds": 6.837,
+          "response_sha256": "29a3debfa86fea4a6d323a63db1d2df75a3ac3133656be1c9d48b9b7c4d76e06",
+          "input_tokens": 368,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Both documents state that the online turbidity meter displayed a peak of 1.3 NTU on 9 February 2026, which is above 1.0 NTU.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Both documents state that the online turbidity meter displayed a peak of 1.3 NTU on 9 February 2026, which is above 1.0 NTU.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "stripped_x3": {
+          "call": 4,
+          "seconds": 8.004,
+          "response_sha256": "41104ffdc8680e8199ceb40a339d7d025ca88560c50459ba8826f0a17d624506",
+          "input_tokens": 537,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Multiple documents confirm the online turbidity meter displayed a peak of 1.3 NTU at Kestermoor on 9 February 2026, which is above the 1.0 NTU threshold.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Multiple documents confirm the online turbidity meter displayed a peak of 1.3 NTU at Kestermoor on 9 February 2026, which is above the 1.0 NTU threshold.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "labeled": {
+          "call": 5,
+          "seconds": 8.197,
+          "response_sha256": "f09c85f3c9e0ad480ef21c8bc27f53304527f2d507d2de567b09c25312ef0ed5",
+          "input_tokens": 381,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 confirms the online turbidity meter displayed a peak of 1.3 NTU at Kestermoor on 9 February 2026, though it notes this was not verified by a grab sample.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 confirms the online turbidity meter displayed a peak of 1.3 NTU at Kestermoor on 9 February 2026, though it notes this was not verified by a grab sample.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "labeled_gate": {
+          "call": 6,
+          "seconds": 10.489,
+          "response_sha256": "a16e4352fd70c1bcae044627911a92415d010a6c6c196b122b82125e53868122",
+          "input_tokens": 424,
+          "output_tokens": 66,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 confirms the online turbidity meter displayed a peak of 1.3 NTU at 02:15 on 9 February, which is above 1.0 NTU, although it notes the value was not verified by a grab sample.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 confirms the online turbidity meter displayed a peak of 1.3 NTU at 02:15 on 9 February, which is above 1.0 NTU, although it notes the value was not verified by a grab sample.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_plain": {
+          "call": 7,
+          "seconds": 7.819,
+          "response_sha256": "d06762328df49c48942ee546133e5f4696dab70305fdc14ea918b9e1c4e0b7fe",
+          "input_tokens": 432,
+          "output_tokens": 46,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 explicitly states that the online turbidity meter at the Kestermoor combined filter outlet showed a peak of 1.3 NTU on 9 February.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 explicitly states that the online turbidity meter at the Kestermoor combined filter outlet showed a peak of 1.3 NTU on 9 February.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_labeled_gate": {
+          "call": 8,
+          "seconds": 9.165,
+          "response_sha256": "ac454910e7b90c4a428df7cb17719850e15defd50a1716eacf0f567ab90dc9d4",
+          "input_tokens": 571,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 confirms that the online turbidity meter at Kestermoor showed a peak of 1.3 NTU on 9 February 2026, which is above 1.0 NTU.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 confirms that the online turbidity meter at Kestermoor showed a peak of 1.3 NTU on 9 February 2026, which is above 1.0 NTU.",
+            "probability": 100
+          },
+          "probability": 100
+        }
+      },
+      "note": "The online turbidity meter at Kestermoor showed a peak of 1.3 NTU on 9 February 2026, but this value was not verified by a grab sample and may have been caused by trapped air after cleaning."
+    },
+    {
+      "case_id": "T02",
+      "calls": {
+        "summary": {
+          "call": 9,
+          "seconds": 8.442,
+          "response_sha256": "f65686d2d84ce704c39a02479b196a5de54dba4cfe2375699b8e9fbcea7514bf",
+          "input_tokens": 266,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The inspection observed a heavily corroded east expansion bearing sitting hard against its end stop, which could push thermal movement into the abutment. However, the document also notes that settlement of the abutment footing has not been ruled out as a cause for the cracks.\"}",
+          "answer": {
+            "note": "The inspection observed a heavily corroded east expansion bearing sitting hard against its end stop, which could push thermal movement into the abutment. However, the document also notes that settlement of the abutment footing has not been ruled out as a cause for the cracks."
+          }
+        },
+        "evidence_only": {
+          "call": 10,
+          "seconds": 7.304,
+          "response_sha256": "a8929dc062b930e1245aa4e89493a71b75ec8f7b127f666a7ae81682768d1fa8",
+          "input_tokens": 273,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document notes the seized bearing 'would push thermal movement into the abutment' as a potential cause, but it also states that settlement of the abutment footing 'had not been ruled out,' making the cause uncertain.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document notes the seized bearing 'would push thermal movement into the abutment' as a potential cause, but it also states that settlement of the abutment footing 'had not been ruled out,' making the cause uncertain.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 11,
+          "seconds": 6.524,
+          "response_sha256": "b85726cd7743aacfdf1e27eb455b5a61d3c9414847774046571c3b7524ce2cad",
+          "input_tokens": 359,
+          "output_tokens": 49,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that a seized bearing 'could' push thermal movement into the abutment causing the cracks, but they also note that footing settlement has not been ruled out as a cause.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that a seized bearing 'could' push thermal movement into the abutment causing the cracks, but they also note that footing settlement has not been ruled out as a cause.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 12,
+          "seconds": 7.857,
+          "response_sha256": "83ed8ec07e5468e4c58df2221b7436b1d76fc9ab1b3b3f8922c1ad7cf1f4f1a1",
+          "input_tokens": 534,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that a seized bearing 'could' push thermal movement into the abutment, but they explicitly note that settlement of the abutment footing has not been ruled out as a cause.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that a seized bearing 'could' push thermal movement into the abutment, but they explicitly note that settlement of the abutment footing has not been ruled out as a cause.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 13,
+          "seconds": 8.003,
+          "response_sha256": "d0606200bd1cbb7f3c5b0d58cff5a2f972f2104a362c074acac4ff00c8beed37",
+          "input_tokens": 372,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that a seized bearing 'would' push thermal movement into the abutment and that footing settlement 'had not been ruled out,' but they do not definitively confirm the seized bearing was the actual cause.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that a seized bearing 'would' push thermal movement into the abutment and that footing settlement 'had not been ruled out,' but they do not definitively confirm the seized bearing was the actual cause.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 14,
+          "seconds": 7.37,
+          "response_sha256": "60f78f6a3df1d610f5481fa43df7d19267a689aae9f1816a41a26fd5163c5038",
+          "input_tokens": 415,
+          "output_tokens": 49,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states the seized bearing 'would' push thermal movement into the abutment and mentions it as a potential factor, but it explicitly notes that footing settlement has not been ruled out.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states the seized bearing 'would' push thermal movement into the abutment and mentions it as a potential factor, but it explicitly notes that footing settlement has not been ruled out.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 15,
+          "seconds": 8.758,
+          "response_sha256": "d71390424ab24d55ee628d342d0a1fa7494f42b4b8f036e57bb4516d33b470a2",
+          "input_tokens": 411,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents suggest the seized bearing 'would push thermal movement into the abutment' and recorded no horizontal movement despite temperature swings, but they do not explicitly state that this was the definitive cause of the cracks.\", \"probability\": 75}",
+          "answer": {
+            "reason": "The documents suggest the seized bearing 'would push thermal movement into the abutment' and recorded no horizontal movement despite temperature swings, but they do not explicitly state that this was the definitive cause of the cracks.",
+            "probability": 75
+          },
+          "probability": 75
+        },
+        "new_labeled_gate": {
+          "call": 16,
+          "seconds": 11.159,
+          "response_sha256": "2111fe62330da5953ac70077d1f7c9428c5b032236a46ad989c7dd24031bb39c",
+          "input_tokens": 553,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents suggest the seized bearing pushed thermal movement into the abutment (D1) and showed almost no horizontal movement despite temperature swings (D3), while settlement was ruled out by level surveys.\", \"probability\": 90}",
+          "answer": {
+            "reason": "The documents suggest the seized bearing pushed thermal movement into the abutment (D1) and showed almost no horizontal movement despite temperature swings (D3), while settlement was ruled out by level surveys.",
+            "probability": 90
+          },
+          "probability": 90
+        }
+      },
+      "note": "The inspection observed a heavily corroded east expansion bearing sitting hard against its end stop, which could push thermal movement into the abutment. However, the document also notes that settlement of the abutment footing has not been ruled out as a cause for the cracks."
+    },
+    {
+      "case_id": "T03",
+      "calls": {
+        "summary": {
+          "call": 17,
+          "seconds": 7.501,
+          "response_sha256": "8bdfc005268a3037fb5b17ab341767012acab94dd089eeb4586e2f455d431c83",
+          "input_tokens": 274,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The engineer suspects an expired payment gateway certificate caused the outage, as order writes resumed normally after the 06:52 database failover. However, a delayed effect of the failover on connection pools has not been ruled out.\"}",
+          "answer": {
+            "note": "The engineer suspects an expired payment gateway certificate caused the outage, as order writes resumed normally after the 06:52 database failover. However, a delayed effect of the failover on connection pools has not been ruled out."
+          }
+        },
+        "evidence_only": {
+          "call": 18,
+          "seconds": 7.798,
+          "response_sha256": "a9aef142c418d2ddf0e86b4faecaa0840d5476dd74063f2e1dabbf0f15daaadb",
+          "input_tokens": 281,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that while Rafe Annersley suspects an expired certificate, he explicitly mentions that a 'delayed effect of the failover on connection pools has not been excluded,' meaning the cause is not yet confirmed.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states that while Rafe Annersley suspects an expired certificate, he explicitly mentions that a 'delayed effect of the failover on connection pools has not been excluded,' meaning the cause is not yet confirmed.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 19,
+          "seconds": 7.758,
+          "response_sha256": "3299279aa271d28426f3b9fd95be90de304411795b8130dacf90870c00502481",
+          "input_tokens": 362,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While the engineer suspects a different cause and notes that order writes resumed normally, both documents explicitly state that a delayed effect of the database failover on connection pools has not been excluded or ruled out.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While the engineer suspects a different cause and notes that order writes resumed normally, both documents explicitly state that a delayed effect of the database failover on connection pools has not been excluded or ruled out.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 20,
+          "seconds": 8.227,
+          "response_sha256": "fbb71d528a343a60089695684edb837e2d5a0c03942aff4a4575240e5b36901c",
+          "input_tokens": 527,
+          "output_tokens": 47,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While the engineer suspects a different cause and notes that order writes resumed normally, the documents explicitly state that a delayed effect of the failover on connection pools has not been excluded.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While the engineer suspects a different cause and notes that order writes resumed normally, the documents explicitly state that a delayed effect of the failover on connection pools has not been excluded.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 21,
+          "seconds": 7.012,
+          "response_sha256": "0ee09be4c6a1cc161c9407a19eb6c86adc722488b6048a377d3719a1ffb14886",
+          "input_tokens": 375,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while the engineer suspects an expired certificate, a 'delayed effect of the failover on connection pools has not been excluded,' meaning it cannot be definitively confirmed as not being the cause.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while the engineer suspects an expired certificate, a 'delayed effect of the failover on connection pools has not been excluded,' meaning it cannot be definitively confirmed as not being the cause.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 22,
+          "seconds": 7.131,
+          "response_sha256": "a3f46d0c530572b82a5c6942c18891eefd1ddb7fad309b26228fb8dca792258b",
+          "input_tokens": 418,
+          "output_tokens": 48,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while the engineer suspects an expired certificate, a 'delayed effect of the failover on connection pools has not been excluded,' meaning it cannot be confirmed as false.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while the engineer suspects an expired certificate, a 'delayed effect of the failover on connection pools has not been excluded,' meaning it cannot be confirmed as false.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 23,
+          "seconds": 9.659,
+          "response_sha256": "b78703eacdbbc2c34310b666d54c62195a68197a7f763bdba8e08fdbdedc48f8",
+          "input_tokens": 420,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents do not confirm this; D1 states a delayed effect of the failover 'has not been excluded,' and D2 notes that while certificate issues occurred, it cannot say if other faults also affected Pelloway.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents do not confirm this; D1 states a delayed effect of the failover 'has not been excluded,' and D2 notes that while certificate issues occurred, it cannot say if other faults also affected Pelloway.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_labeled_gate": {
+          "call": 24,
+          "seconds": 8.909,
+          "response_sha256": "d3b0f13c4bb92308b9eadc089eab08df310c9ce8c1847e066b16688909a42f34",
+          "input_tokens": 557,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents do not definitively prove the cause was not the failover; D1 states a delayed effect on connection pools 'has not been excluded,' while D3 confirms an expired certificate issue occurred during the same window.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents do not definitively prove the cause was not the failover; D1 states a delayed effect on connection pools 'has not been excluded,' while D3 confirms an expired certificate issue occurred during the same window.",
+            "probability": 50
+          },
+          "probability": 50
+        }
+      },
+      "note": "The engineer suspects an expired payment gateway certificate caused the outage, as order writes resumed normally after the 06:52 database failover. However, a delayed effect of the failover on connection pools has not been ruled out."
+    },
+    {
+      "case_id": "T04",
+      "calls": {
+        "summary": {
+          "call": 25,
+          "seconds": 8.317,
+          "response_sha256": "c266746a7c7189d01139506e7c36de898a9d22ab6e847ee332074b21a340e6a4",
+          "input_tokens": 249,
+          "output_tokens": 68,
+          "done_reason": "stop",
+          "content": "{\"note\": \"A survey on April 21, 2026, found two adult speckled fen newts in Pond 4, including one male in breeding crest. A leaf used for wrapping eggs was found, but no actual eggs were seen due to poor water clarity and the possibility that adults visit without breeding.\"}",
+          "answer": {
+            "note": "A survey on April 21, 2026, found two adult speckled fen newts in Pond 4, including one male in breeding crest. A leaf used for wrapping eggs was found, but no actual eggs were seen due to poor water clarity and the possibility that adults visit without breeding."
+          }
+        },
+        "evidence_only": {
+          "call": 26,
+          "seconds": 7.114,
+          "response_sha256": "ec41eb5d89a56483a65fc8bdf1342ee03dbbf8653b71aea2b486596ba0d87ecc",
+          "input_tokens": 256,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document confirms the presence of a male in breeding crest and an egg-wrapping leaf in Pond 4 during spring 2026, but explicitly states no eggs were seen and notes that adults may visit without breeding.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document confirms the presence of a male in breeding crest and an egg-wrapping leaf in Pond 4 during spring 2026, but explicitly states no eggs were seen and notes that adults may visit without breeding.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 27,
+          "seconds": 7.342,
+          "response_sha256": "88b5119fb10443b6899dd4f1cee291556291a892270e2f5f13da262e0809c6ca",
+          "input_tokens": 352,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a male in breeding crest and an egg-wrapping leaf were found, no eggs were actually seen. Furthermore, it is noted that adults may visit ponds without breeding in them.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that while a male in breeding crest and an egg-wrapping leaf were found, no eggs were actually seen. Furthermore, it is noted that adults may visit ponds without breeding in them.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "stripped_x3": {
+          "call": 28,
+          "seconds": 7.95,
+          "response_sha256": "750275a9f5acda3e1f71bc99d2b09582efd51c203c07c49c857cd0af30f7643e",
+          "input_tokens": 547,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a male in breeding crest and an egg-wrapping leaf were found, no eggs were actually seen. Furthermore, it is noted that adults may visit ponds without breeding in them.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that while a male in breeding crest and an egg-wrapping leaf were found, no eggs were actually seen. Furthermore, it is noted that adults may visit ponds without breeding in them.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled": {
+          "call": 29,
+          "seconds": 8.013,
+          "response_sha256": "dffca2e6196a1d1b4013500791a372b709086887dc790232bcdaaca2cd22e0d2",
+          "input_tokens": 365,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a male in breeding crest and an egg-wrapping leaf were found, no eggs were actually seen. Furthermore, it is noted that adults may visit ponds without breeding.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while a male in breeding crest and an egg-wrapping leaf were found, no eggs were actually seen. Furthermore, it is noted that adults may visit ponds without breeding.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 30,
+          "seconds": 8.237,
+          "response_sha256": "ca626eaa12de52ffcc73cbefce09dc025e590f86f30c8bc2987052ea6120ec4a",
+          "input_tokens": 408,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document confirms the presence of two adult speckled fen newts (one with a breeding crest) in Pond 4 during April 2026, but notes no eggs were seen and adults may just be visiting.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document confirms the presence of two adult speckled fen newts (one with a breeding crest) in Pond 4 during April 2026, but notes no eggs were seen and adults may just be visiting.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 31,
+          "seconds": 9.631,
+          "response_sha256": "4062e2efe3e3d758837c19d83399257c6cb8202dd05a6602a528f1d7a58f8280",
+          "input_tokens": 393,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D1 notes adults were present but eggs were not seen; D2 confirms newt larvae with speckled fen newt characteristics were found in Pond 4 in July 2026, suggesting breeding occurred.\", \"probability\": 90}",
+          "answer": {
+            "reason": "D1 notes adults were present but eggs were not seen; D2 confirms newt larvae with speckled fen newt characteristics were found in Pond 4 in July 2026, suggesting breeding occurred.",
+            "probability": 90
+          },
+          "probability": 90
+        },
+        "new_labeled_gate": {
+          "call": 32,
+          "seconds": 10.219,
+          "response_sha256": "5be1a80fbad882e85a17495cc5dd5051e1c22e59c0e084cc40a8a6532aba3728",
+          "input_tokens": 545,
+          "output_tokens": 64,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D3 confirms three newt larvae with speckled fen newt markings were found in Pond 4 in July 2026. Since they weren't washed in (no inflow) and a breeding male was seen in April, breeding is highly likely.\", \"probability\": 90}",
+          "answer": {
+            "reason": "D3 confirms three newt larvae with speckled fen newt markings were found in Pond 4 in July 2026. Since they weren't washed in (no inflow) and a breeding male was seen in April, breeding is highly likely.",
+            "probability": 90
+          },
+          "probability": 90
+        }
+      },
+      "note": "A survey on April 21, 2026, found two adult speckled fen newts in Pond 4, including one male in breeding crest. A leaf used for wrapping eggs was found, but no actual eggs were seen due to poor water clarity and the possibility that adults visit without breeding."
+    },
+    {
+      "case_id": "T05",
+      "calls": {
+        "summary": {
+          "call": 33,
+          "seconds": 8.175,
+          "response_sha256": "dddde3a66e3e307d8aee838b88adb389659aad6d157c8ab6830705f93b68aa01",
+          "input_tokens": 277,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The document states that 2 out of 50 sampled hinge brackets from lot 3317 had hole spacing outside tolerance. It notes that the sample size provides only a rough indication and mentions worn check gauge pins may affect results.\"}",
+          "answer": {
+            "note": "The document states that 2 out of 50 sampled hinge brackets from lot 3317 had hole spacing outside tolerance. It notes that the sample size provides only a rough indication and mentions worn check gauge pins may affect results."
+          }
+        },
+        "evidence_only": {
+          "call": 34,
+          "seconds": 8.671,
+          "response_sha256": "01e2917fbda63f0fd69dd6d26b31da1ae4c31408babf1c5e40d13c025fa8c2b3",
+          "input_tokens": 284,
+          "output_tokens": 61,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that 2 out of 50 brackets (4%) failed. It explicitly notes that this small sample provides only a 'rough indication' of the total lot, making it impossible to confirm if more than 40 failed.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states that 2 out of 50 brackets (4%) failed. It explicitly notes that this small sample provides only a 'rough indication' of the total lot, making it impossible to confirm if more than 40 failed.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 35,
+          "seconds": 7.491,
+          "response_sha256": "ba1c5d5d62ba5b4d14e634b27f5dea7b42431c6d10445a8a95e7d19797794cca",
+          "input_tokens": 366,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that 2 out of 50 sampled brackets were out of tolerance, but they explicitly mention this is only a 'rough indication' and do not provide the total count for the entire lot.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that 2 out of 50 sampled brackets were out of tolerance, but they explicitly mention this is only a 'rough indication' and do not provide the total count for the entire lot.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "stripped_x3": {
+          "call": 36,
+          "seconds": 8.292,
+          "response_sha256": "92d28833729e8dfdc81ee45f745ed12a296fc1d4bb114c2ebeced1af268bfba3",
+          "input_tokens": 533,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that 2 out of 50 sampled brackets were out of tolerance, but explicitly note this is only a 'rough indication' of the lot. There is no data confirming more than 40 failures.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that 2 out of 50 sampled brackets were out of tolerance, but explicitly note this is only a 'rough indication' of the lot. There is no data confirming more than 40 failures.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled": {
+          "call": 37,
+          "seconds": 7.312,
+          "response_sha256": "da40653393c75254a37b6df01d938067d6d37d1f0ce23ff5a2ce831f385544f7",
+          "input_tokens": 379,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that 2 out of 50 sampled brackets were out of tolerance, but they explicitly mention this is only a 'rough indication' and do not provide the total count for the entire lot.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that 2 out of 50 sampled brackets were out of tolerance, but they explicitly mention this is only a 'rough indication' and do not provide the total count for the entire lot.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled_gate": {
+          "call": 38,
+          "seconds": 8.303,
+          "response_sha256": "badb0f8dfff6127b92e93f188e3dfa2fcbd37e4375b30c5bf2a0e3a527119f12",
+          "input_tokens": 422,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that 2 out of 50 sampled brackets were out of tolerance, but they do not provide data on the total number of failures in the lot of 2,000.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that 2 out of 50 sampled brackets were out of tolerance, but they do not provide data on the total number of failures in the lot of 2,000.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "new_plain": {
+          "call": 39,
+          "seconds": 9.66,
+          "response_sha256": "5f744d38f28f9e4ebfd721834bcde8df8b1908f9e911ad71f7d6424cd0ffa8dc",
+          "input_tokens": 440,
+          "output_tokens": 71,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents do not provide enough data to calculate the total number of defective parts in lot 3317. D2 shows only 3 out of 120 were outside tolerance (2.5%), which would be 50 defects, but this is an unverified estimate.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents do not provide enough data to calculate the total number of defective parts in lot 3317. D2 shows only 3 out of 120 were outside tolerance (2.5%), which would be 50 defects, but this is an unverified estimate.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_labeled_gate": {
+          "call": 40,
+          "seconds": 9.704,
+          "response_sha256": "3a7c115d45f61161fb96b01037ec2205db78fa1a5784b27762b143a026361173",
+          "input_tokens": 578,
+          "output_tokens": 69,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents do not provide enough data to confirm that more than 40 brackets were out of tolerance. D3 shows only 3 out of 120 (2.5%) failed, which would be 50 in a lot of 2,000.\", \"probability\": 25}",
+          "answer": {
+            "reason": "The documents do not provide enough data to confirm that more than 40 brackets were out of tolerance. D3 shows only 3 out of 120 (2.5%) failed, which would be 50 in a lot of 2,000.",
+            "probability": 25
+          },
+          "probability": 25
+        }
+      },
+      "note": "The document states that 2 out of 50 sampled hinge brackets from lot 3317 had hole spacing outside tolerance. It notes that the sample size provides only a rough indication and mentions worn check gauge pins may affect results."
+    },
+    {
+      "case_id": "T06",
+      "calls": {
+        "summary": {
+          "call": 41,
+          "seconds": 6.692,
+          "response_sha256": "36d166121ae71de15f5e9a1ee8b2183ae0bd475ab117289cd94a895fd2b393d3",
+          "input_tokens": 263,
+          "output_tokens": 46,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The oak posts are in a cut sealed beneath a clay floor containing pottery that generally went out of use during the eleventh century, though some sherds may be from earlier layers and wood dating is pending.\"}",
+          "answer": {
+            "note": "The oak posts are in a cut sealed beneath a clay floor containing pottery that generally went out of use during the eleventh century, though some sherds may be from earlier layers and wood dating is pending."
+          }
+        },
+        "evidence_only": {
+          "call": 42,
+          "seconds": 8.073,
+          "response_sha256": "fc0e67656a25ccb5cbbfc65557385ad26e4a227ad037a4b1b84d5b3157cad665",
+          "input_tokens": 270,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states the pottery suggests a date before the eleventh century (AD 1100), but notes that the floor might be younger due to potential disturbance and wood dating is pending.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states the pottery suggests a date before the eleventh century (AD 1100), but notes that the floor might be younger due to potential disturbance and wood dating is pending.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 43,
+          "seconds": 7.458,
+          "response_sha256": "88c6b6f158a13435883875dace76d380e3d59928371d2fba811326e509e4e633",
+          "input_tokens": 344,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the pottery went out of use during the eleventh century (AD 1100), but note that the floor might be younger due to potential disturbance. No definitive date for the posts is confirmed.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state the pottery went out of use during the eleventh century (AD 1100), but note that the floor might be younger due to potential disturbance. No definitive date for the posts is confirmed.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 44,
+          "seconds": 8.213,
+          "response_sha256": "880e33860a76110613656215902cc128fc6526543ffa4a87354576bfbd8caf20",
+          "input_tokens": 495,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the pottery associated with the floor went out of use during the eleventh century (AD 1100), but they also note that the floor might be younger than the sherds suggest and wood dating is pending.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state the pottery associated with the floor went out of use during the eleventh century (AD 1100), but they also note that the floor might be younger than the sherds suggest and wood dating is pending.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 45,
+          "seconds": 7.52,
+          "response_sha256": "18e47c9098f39bdbb19a71aac8eb3bb7dad06df8ac85e9890eaaa001c65ffab8",
+          "input_tokens": 357,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the pottery associated with the floor went out of use during the eleventh century, but note that the floor might be younger than the sherds suggest. No definitive date for the posts is confirmed.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state the pottery associated with the floor went out of use during the eleventh century, but note that the floor might be younger than the sherds suggest. No definitive date for the posts is confirmed.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 46,
+          "seconds": 7.63,
+          "response_sha256": "86621269729964079f9905374340137b8806ae23ff4e5e45c6d596c408632fd3",
+          "input_tokens": 400,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the pottery associated with the floor sealing the posts went out of use during the eleventh century (AD 1100), but note that the floor might be younger due to potential disturbance.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state the pottery associated with the floor sealing the posts went out of use during the eleventh century (AD 1100), but note that the floor might be younger due to potential disturbance.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 47,
+          "seconds": 9.581,
+          "response_sha256": "87e65b5445b69f5aab5698cb8874c2f6c08e1e98e72732e228c8cf8e34f2d848",
+          "input_tokens": 431,
+          "output_tokens": 72,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D2 provides a dendrochronological felling range of AD 1061 to 1094 for the better-preserved post. Since both dates are before AD 1100, and D1 supports an early date based on pottery, the claim is highly likely.\", \"probability\": 95}",
+          "answer": {
+            "reason": "D2 provides a dendrochronological felling range of AD 1061 to 1094 for the better-preserved post. Since both dates are before AD 1100, and D1 supports an early date based on pottery, the claim is highly likely.",
+            "probability": 95
+          },
+          "probability": 95
+        },
+        "new_labeled_gate": {
+          "call": 48,
+          "seconds": 10.037,
+          "response_sha256": "803cb2a352aeb0568c39b463b8c95c07e0c92643932d328a79d31883c7e97a77",
+          "input_tokens": 561,
+          "output_tokens": 65,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D3 provides a dendrochronological felling range of AD 1061 to 1094 for the better-preserved post. Since this entire range is before AD 1100, the claim is supported by scientific dating.\", \"probability\": 100}",
+          "answer": {
+            "reason": "D3 provides a dendrochronological felling range of AD 1061 to 1094 for the better-preserved post. Since this entire range is before AD 1100, the claim is supported by scientific dating.",
+            "probability": 100
+          },
+          "probability": 100
+        }
+      },
+      "note": "The oak posts are in a cut sealed beneath a clay floor containing pottery that generally went out of use during the eleventh century, though some sherds may be from earlier layers and wood dating is pending."
+    },
+    {
+      "case_id": "T07",
+      "calls": {
+        "summary": {
+          "call": 49,
+          "seconds": 11.226,
+          "response_sha256": "6eb629d47be9dd975fd536c1dcdc4dc431316174744e5baa7816a76f847227e0",
+          "input_tokens": 270,
+          "output_tokens": 79,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The diary entry notes that at 15:30 on 22 May, the contractor was applying the second fungicide spray in field 9. While heavy rain began at 16:00 and a large part of the field appeared unsprayed from the road, the manager did not see the sprayer leave or walk the field to confirm completion.\"}",
+          "answer": {
+            "note": "The diary entry notes that at 15:30 on 22 May, the contractor was applying the second fungicide spray in field 9. While heavy rain began at 16:00 and a large part of the field appeared unsprayed from the road, the manager did not see the sprayer leave or walk the field to confirm completion."
+          }
+        },
+        "evidence_only": {
+          "call": 50,
+          "seconds": 9.05,
+          "response_sha256": "d0cb2d07b49cebe653f3cb9e5b2a63921a9d62ba1434397047daabb679aaa271",
+          "input_tokens": 277,
+          "output_tokens": 65,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that at 15:30 on 22 May, the sprayer was still applying the spray and heavy rain began at 16:00. It notes a large part of the field appeared unsprayed, supporting the claim.\", \"probability\": 90}",
+          "answer": {
+            "reason": "The document states that at 15:30 on 22 May, the sprayer was still applying the spray and heavy rain began at 16:00. It notes a large part of the field appeared unsprayed, supporting the claim.",
+            "probability": 90
+          },
+          "probability": 90
+        },
+        "stripped_x1": {
+          "call": 51,
+          "seconds": 9.139,
+          "response_sha256": "09619fa1c9e61e7e59cedddad1676d673ebd9365cab13a5ca2b9e8229800e255",
+          "input_tokens": 384,
+          "output_tokens": 60,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that a large part of the field 'appeared' unsprayed at 16:00 when rain began, but they also note the manager did not walk the field to confirm and could not see the sprayer leave.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that a large part of the field 'appeared' unsprayed at 16:00 when rain began, but they also note the manager did not walk the field to confirm and could not see the sprayer leave.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 52,
+          "seconds": 8.549,
+          "response_sha256": "17059553fd7431943a848ca14f3361b60b83f25a603b52ac64405cbb60ab650b",
+          "input_tokens": 601,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while it appeared unsprayed from the road, the manager did not see the sprayer leave or walk the field to confirm whether the work was completed before the rain began.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while it appeared unsprayed from the road, the manager did not see the sprayer leave or walk the field to confirm whether the work was completed before the rain began.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 53,
+          "seconds": 8.119,
+          "response_sha256": "c833620b3a37b294cc9f05fc3c756df1e97c560b6d923340674be0a8fdacc39c",
+          "input_tokens": 397,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that a large part of the field 'appeared' unsprayed and the manager did not confirm completion by walking the field, but they do not explicitly state that the spray was definitely not completed.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that a large part of the field 'appeared' unsprayed and the manager did not confirm completion by walking the field, but they do not explicitly state that the spray was definitely not completed.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 54,
+          "seconds": 9.067,
+          "response_sha256": "ea9bc4ed23531d662120fcd57ab8e88033df86c19aa24434b4def27868c6ee4e",
+          "input_tokens": 440,
+          "output_tokens": 61,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that a large part of the field 'appeared' unsprayed at 16:00 when rain began, but the manager admits she only saw it briefly from the road and did not confirm if the sprayer had finished.\", \"probability\": 75}",
+          "answer": {
+            "reason": "The document states that a large part of the field 'appeared' unsprayed at 16:00 when rain began, but the manager admits she only saw it briefly from the road and did not confirm if the sprayer had finished.",
+            "probability": 75
+          },
+          "probability": 75
+        },
+        "new_plain": {
+          "call": 55,
+          "seconds": 10.116,
+          "response_sha256": "5443911a57e8e35a9c15a9d93ebbc7be1fd42c8a2f37e71e1b17453b29eb1cbf",
+          "input_tokens": 430,
+          "output_tokens": 62,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D2 confirms the sprayer was only active over 11.4 of the 18.6 hectares, meaning a large portion remained unsprayed before the machine left at 16:06, shortly after rain began.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D2 confirms the sprayer was only active over 11.4 of the 18.6 hectares, meaning a large portion remained unsprayed before the machine left at 16:06, shortly after rain began.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_labeled_gate": {
+          "call": 56,
+          "seconds": 10.575,
+          "response_sha256": "8951e47441ebc1c2d5beea0543614b4d52b6a0025a4a2bfe666d22fae9617f30",
+          "input_tokens": 593,
+          "output_tokens": 67,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The telematics data (D3) confirms the sprayer was only active over 11.4 of the 18.6 hectares in field 9, and spraying stopped at 15:51 before rain began at 16:00.\", \"probability\": 100}",
+          "answer": {
+            "reason": "The telematics data (D3) confirms the sprayer was only active over 11.4 of the 18.6 hectares in field 9, and spraying stopped at 15:51 before rain began at 16:00.",
+            "probability": 100
+          },
+          "probability": 100
+        }
+      },
+      "note": "The diary entry notes that at 15:30 on 22 May, the contractor was applying the second fungicide spray in field 9. While heavy rain began at 16:00 and a large part of the field appeared unsprayed from the road, the manager did not see the sprayer leave or walk the field to confirm completion."
+    },
+    {
+      "case_id": "T08",
+      "calls": {
+        "summary": {
+          "call": 57,
+          "seconds": 8.273,
+          "response_sha256": "64bb1cdff7d9bfcfdb036f37de4713b8e4af97e440c2635e65e9477a9a5261a5",
+          "input_tokens": 275,
+          "output_tokens": 59,
+          "done_reason": "stop",
+          "content": "{\"note\": \"A patrol launch observed no outflow from the MV Orrin Lark's hull during a 20-minute watch. However, because the launch arrived 40 minutes after a report of discoloured water, it could have missed a discharge that had already ceased.\"}",
+          "answer": {
+            "note": "A patrol launch observed no outflow from the MV Orrin Lark's hull during a 20-minute watch. However, because the launch arrived 40 minutes after a report of discoloured water, it could have missed a discharge that had already ceased."
+          }
+        },
+        "evidence_only": {
+          "call": 58,
+          "seconds": 7.093,
+          "response_sha256": "f5f38b469894925a9bc803ffc4078e9c3005c50be448469527e6aba1ba48e607",
+          "input_tokens": 282,
+          "output_tokens": 46,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states the patrol saw no outflow but notes they arrived late and did not take samples, meaning it is uncertain if a prior discharge occurred. The evidence is inconclusive.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states the patrol saw no outflow but notes they arrived late and did not take samples, meaning it is uncertain if a prior discharge occurred. The evidence is inconclusive.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 59,
+          "seconds": 7.638,
+          "response_sha256": "683a484dba56fa0b719e2540b9342ba74b2a3a74640e1ba14e8c53b8a4064ea6",
+          "input_tokens": 369,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while no outflow was seen during a 20-minute watch, the patrol arrived 40 minutes late and did not take samples, meaning they cannot confirm if a discharge occurred before their arrival.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while no outflow was seen during a 20-minute watch, the patrol arrived 40 minutes late and did not take samples, meaning they cannot confirm if a discharge occurred before their arrival.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 60,
+          "seconds": 7.894,
+          "response_sha256": "b4a186e5daf465373bea10f9bbd2fae9025551e0faacdae629ae588a2c9fa41b",
+          "input_tokens": 546,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while no outflow was seen during a 20-minute watch, the patrol arrived 40 minutes late and could have missed a discharge that had already stopped. The truth is uncertain.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while no outflow was seen during a 20-minute watch, the patrol arrived 40 minutes late and could have missed a discharge that had already stopped. The truth is uncertain.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 61,
+          "seconds": 7.062,
+          "response_sha256": "9979c06829b20c119d11ce39a085bdb647cfeb8af7ad58b5b1b0ef306aedec26",
+          "input_tokens": 382,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while no outflow was seen during a 20-minute watch, the patrol arrived 40 minutes late and did not take samples, meaning a discharge could have occurred before they arrived.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while no outflow was seen during a 20-minute watch, the patrol arrived 40 minutes late and did not take samples, meaning a discharge could have occurred before they arrived.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 62,
+          "seconds": 7.355,
+          "response_sha256": "44b0574a9351e84a9cd3c0ded1dad6a0d00651d81d933f0ad20c50dc6c7043c6",
+          "input_tokens": 425,
+          "output_tokens": 47,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The patrol report states they saw no outflow but admits they arrived 40 minutes late and did not take samples, meaning they cannot confirm if a discharge occurred before their arrival.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The patrol report states they saw no outflow but admits they arrived 40 minutes late and did not take samples, meaning they cannot confirm if a discharge occurred before their arrival.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 63,
+          "seconds": 8.481,
+          "response_sha256": "9a89c0b77abb3730b427491eb73aae9b9400abf38d1a7c2165250495a85b0ffc",
+          "input_tokens": 423,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states patrol crews saw no outflow but notes they arrived late and missed potential discharges. Document D2 shows no pump activity, but admits soundings could not detect small releases or gravity-fed drainage.\", \"probability\": 50}",
+          "answer": {
+            "reason": "Document D1 states patrol crews saw no outflow but notes they arrived late and missed potential discharges. Document D2 shows no pump activity, but admits soundings could not detect small releases or gravity-fed drainage.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_labeled_gate": {
+          "call": 64,
+          "seconds": 8.663,
+          "response_sha256": "068c46aa7ba2b3ae52d0d5e9d6f159ec075b51b234f622993a7d17e41eb7a67f",
+          "input_tokens": 566,
+          "output_tokens": 59,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The patrol report (D1) saw no outflow during their watch but noted they arrived late, potentially missing a discharge. The survey (D3) showed no pump activity, but could not detect small releases or gravity-fed drainage.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The patrol report (D1) saw no outflow during their watch but noted they arrived late, potentially missing a discharge. The survey (D3) showed no pump activity, but could not detect small releases or gravity-fed drainage.",
+            "probability": 50
+          },
+          "probability": 50
+        }
+      },
+      "note": "A patrol launch observed no outflow from the MV Orrin Lark's hull during a 20-minute watch. However, because the launch arrived 40 minutes after a report of discoloured water, it could have missed a discharge that had already ceased."
+    },
+    {
+      "case_id": "T09",
+      "calls": {
+        "summary": {
+          "call": 65,
+          "seconds": 7.24,
+          "response_sha256": "c9c553169353a5059e5285f5f7ac8ec5c3a99842b07534904140b9edaec7a1d0",
+          "input_tokens": 271,
+          "output_tokens": 47,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The incident report identifies a chipped and visibly worn tip on the left switch blade as a factor, but notes that wheel defects or overspeed remain possibilities as wheel profiles and onboard recorders have not yet been checked.\"}",
+          "answer": {
+            "note": "The incident report identifies a chipped and visibly worn tip on the left switch blade as a factor, but notes that wheel defects or overspeed remain possibilities as wheel profiles and onboard recorders have not yet been checked."
+          }
+        },
+        "evidence_only": {
+          "call": 66,
+          "seconds": 6.939,
+          "response_sha256": "2f254e60195e616b63b25616b4c3c60f6b48be728a50457de6647f949f2bfcf5",
+          "input_tokens": 278,
+          "output_tokens": 44,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The report identifies a worn switch blade as a factor but explicitly states that a wheel defect or overspeed remains possible because those factors have not yet been ruled out.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The report identifies a worn switch blade as a factor but explicitly states that a wheel defect or overspeed remains possible because those factors have not yet been ruled out.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 67,
+          "seconds": 20.344,
+          "response_sha256": "d8fcc0e38b2ca819ffdcc68010b468a812fd92563177dde32da4bf634515f8f2",
+          "input_tokens": 353,
+          "output_tokens": 44,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While the documents identify a worn switch blade as a factor, they explicitly state that wheel defects or overspeed remain possible because those elements have not yet been investigated.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While the documents identify a worn switch blade as a factor, they explicitly state that wheel defects or overspeed remain possible because those elements have not yet been investigated.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 68,
+          "seconds": 10.186,
+          "response_sha256": "fa0cd766287a5ebfafcc40e01f0f1244def3e122b6cf7c6e3e9335c11081c11f",
+          "input_tokens": 506,
+          "output_tokens": 43,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While a worn switch blade was identified as a factor, the documents state that wheel defects or overspeed remain possible because those elements have not yet been investigated.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While a worn switch blade was identified as a factor, the documents state that wheel defects or overspeed remain possible because those elements have not yet been investigated.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 69,
+          "seconds": 11.252,
+          "response_sha256": "7edb759d8b1607d2084978d69733975d12826b571f82bbb9ce7c8dcb11a790a0",
+          "input_tokens": 366,
+          "output_tokens": 45,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While the report identifies a worn switch blade as a factor, it explicitly states that wheel defects or overspeed remain possible because those factors have not yet been ruled out.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While the report identifies a worn switch blade as a factor, it explicitly states that wheel defects or overspeed remain possible because those factors have not yet been ruled out.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 70,
+          "seconds": 26.847,
+          "response_sha256": "caf2d228d41f9fd453526cabf51dcd43e4af3124cf69a58337d920e21fd5d39b",
+          "input_tokens": 409,
+          "output_tokens": 46,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While a worn switch blade was identified as a contributing factor, the report explicitly states that wheel defects or overspeed remain possible because those factors have not yet been ruled out.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While a worn switch blade was identified as a contributing factor, the report explicitly states that wheel defects or overspeed remain possible because those factors have not yet been ruled out.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 71,
+          "seconds": 8.589,
+          "response_sha256": "26bbfbbf8fe783b87c22d15227845d7a1a83b6eacb6aa10526ac204fb0ae7239",
+          "input_tokens": 411,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While a worn switch blade was identified as a factor, D2 confirms that wheel defects were ruled out and speed was within limits. The documents do not definitively state it was the sole cause.\", \"probability\": 75}",
+          "answer": {
+            "reason": "While a worn switch blade was identified as a factor, D2 confirms that wheel defects were ruled out and speed was within limits. The documents do not definitively state it was the sole cause.",
+            "probability": 75
+          },
+          "probability": 75
+        },
+        "new_labeled_gate": {
+          "call": 72,
+          "seconds": 7.687,
+          "response_sha256": "9a9907bd9f0599ffccfa93631aaf60b54f6eb43b02d9510233d29dcc7c20cd91",
+          "input_tokens": 542,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While a worn switch blade was identified as a factor, D3 confirms wheels were within limits and speed was below the limit. The documents do not definitively state the wear was the sole cause.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While a worn switch blade was identified as a factor, D3 confirms wheels were within limits and speed was below the limit. The documents do not definitively state the wear was the sole cause.",
+            "probability": 50
+          },
+          "probability": 50
+        }
+      },
+      "note": "The incident report identifies a chipped and visibly worn tip on the left switch blade as a factor, but notes that wheel defects or overspeed remain possibilities as wheel profiles and onboard recorders have not yet been checked."
+    },
+    {
+      "case_id": "T10",
+      "calls": {
+        "summary": {
+          "call": 73,
+          "seconds": 9.4,
+          "response_sha256": "150c0efa54a2a5bfa611d354874dff1f671e6bc1b39dcd09579292656e17ba9f",
+          "input_tokens": 283,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The document confirms F-3 was warmer than -63°C when the technician arrived at 04:55, but because the data logger's battery was flat, the specific peak temperature reached during the power cut was not recorded.\"}",
+          "answer": {
+            "note": "The document confirms F-3 was warmer than -63°C when the technician arrived at 04:55, but because the data logger's battery was flat, the specific peak temperature reached during the power cut was not recorded."
+          }
+        },
+        "evidence_only": {
+          "call": 74,
+          "seconds": 7.753,
+          "response_sha256": "59b29c75b62e554e923d76aefca96b04f6f3150f2435d7c02f295cc1af673b4f",
+          "input_tokens": 290,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that the temperature was dropping as the compressor recovered at 04:55 and was warmer before then. However, it explicitly states the peak temperature was not recorded due to a flat battery.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states that the temperature was dropping as the compressor recovered at 04:55 and was warmer before then. However, it explicitly states the peak temperature was not recorded due to a flat battery.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 75,
+          "seconds": 8.583,
+          "response_sha256": "6a0958b88b6c70a53c8bd68d2588049425298ad3923990aef0cec410d55b763e",
+          "input_tokens": 374,
+          "output_tokens": 60,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While documents confirm the freezer was warmer than -63°C before the technician arrived, they explicitly state that the peak temperature was not recorded due to a flat battery, making it impossible to confirm if it exceeded -60°C.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While documents confirm the freezer was warmer than -63°C before the technician arrived, they explicitly state that the peak temperature was not recorded due to a flat battery, making it impossible to confirm if it exceeded -60°C.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 76,
+          "seconds": 7.939,
+          "response_sha256": "f0cd660ba2a2e111f8f0e880ce33b3b60e9e5658a5b89d925b6a0a7620237c7a",
+          "input_tokens": 545,
+          "output_tokens": 49,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While documents confirm the freezer was warmer than -63°C before the technician arrived, they explicitly state that the peak temperature during the outage was not recorded due to a flat battery.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While documents confirm the freezer was warmer than -63°C before the technician arrived, they explicitly state that the peak temperature during the outage was not recorded due to a flat battery.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 77,
+          "seconds": 8.402,
+          "response_sha256": "85979f563c343e3f86a44cf8eb685588adabfe4ff59d5550ba71a5a0b5f56247",
+          "input_tokens": 387,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that F-3 was warmer than -63°C when the technician arrived and its temperature was dropping as it recovered. However, because the data logger had a flat battery, the peak temperature is unknown.\", \"probability\": 50}",
+          "answer": {
+            "reason": "Document D1 states that F-3 was warmer than -63°C when the technician arrived and its temperature was dropping as it recovered. However, because the data logger had a flat battery, the peak temperature is unknown.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 78,
+          "seconds": 8.563,
+          "response_sha256": "7597f7876313c02bed4ed9f446d8be2f688ec502947691394058f1ff207dd33a",
+          "input_tokens": 430,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that F-3 was warmer than -63°C when the technician arrived and its temperature was dropping as it recovered. However, because the data logger had a flat battery, the peak temperature is unknown.\", \"probability\": 50}",
+          "answer": {
+            "reason": "Document D1 states that F-3 was warmer than -63°C when the technician arrived and its temperature was dropping as it recovered. However, because the data logger had a flat battery, the peak temperature is unknown.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 79,
+          "seconds": 8.361,
+          "response_sha256": "56ae3460928538227fa5fcf257a61687675aa4019cddd6c6e9f1152f9af77fb2",
+          "input_tokens": 421,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D2 states that three out of five indicator labels turned red, which happens when temperatures rise above -60°C. This confirms the temperature exceeded that threshold during the power cut.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D2 states that three out of five indicator labels turned red, which happens when temperatures rise above -60°C. This confirms the temperature exceeded that threshold during the power cut.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_labeled_gate": {
+          "call": 80,
+          "seconds": 7.868,
+          "response_sha256": "b3330a100403cbbe712ef6212c90c3511d368e8575578dfd20fe483185e2dc55",
+          "input_tokens": 561,
+          "output_tokens": 47,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D3 confirms that three out of five sample boxes in freezer F-3 had indicator labels turn red, which happens when temperatures rise above -60 degrees Celsius.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D3 confirms that three out of five sample boxes in freezer F-3 had indicator labels turn red, which happens when temperatures rise above -60 degrees Celsius.",
+            "probability": 100
+          },
+          "probability": 100
+        }
+      },
+      "note": "The document confirms F-3 was warmer than -63°C when the technician arrived at 04:55, but because the data logger's battery was flat, the specific peak temperature reached during the power cut was not recorded."
+    },
+    {
+      "case_id": "T11",
+      "calls": {
+        "summary": {
+          "call": 81,
+          "seconds": 8.372,
+          "response_sha256": "54800a8055ac34da103715802b75e1b6424fe647c9185e6e34d3b5bdbffc9745",
+          "input_tokens": 269,
+          "output_tokens": 61,
+          "done_reason": "stop",
+          "content": "{\"note\": \"A Velmark Power responder found the feeder isolator open on 19 March 2026. While a Corbrin Electrical crew was present connecting metering cables, their foreman stated they had not touched the switchgear and suggested someone else may have entered the site.\"}",
+          "answer": {
+            "note": "A Velmark Power responder found the feeder isolator open on 19 March 2026. While a Corbrin Electrical crew was present connecting metering cables, their foreman stated they had not touched the switchgear and suggested someone else may have entered the site."
+          }
+        },
+        "evidence_only": {
+          "call": 82,
+          "seconds": 6.861,
+          "response_sha256": "fd2b9575c05391a0a162ed519125a1173b1accd96fdb4d0b659146d7506f2aa2",
+          "input_tokens": 276,
+          "output_tokens": 44,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site because the gate was left unlocked.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The document states that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site because the gate was left unlocked.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "stripped_x1": {
+          "call": 83,
+          "seconds": 6.732,
+          "response_sha256": "b8758a724af9396e583625ab440321bf8d1628487c149acdf3d1e1ed97d6267e",
+          "input_tokens": 365,
+          "output_tokens": 42,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Both documents state that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site, contradicting the claim.\", \"probability\": 0}",
+          "answer": {
+            "reason": "Both documents state that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site, contradicting the claim.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "stripped_x3": {
+          "call": 84,
+          "seconds": 9.653,
+          "response_sha256": "6962191776ee439eaa472964f043ba81c641b336f375f9f3cc22cf66094f2909",
+          "input_tokens": 546,
+          "output_tokens": 42,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site, contradicting the claim.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site, contradicting the claim.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled": {
+          "call": 85,
+          "seconds": 6.467,
+          "response_sha256": "f6ac282ac0d4edef343a2fa12cfad819f45939514c7b83c59d351c46967427aa",
+          "input_tokens": 378,
+          "output_tokens": 42,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site, contradicting the claim.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that the Corbrin Electrical foreman denied his crew touched the switchgear and suggested someone else might have entered the site, contradicting the claim.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled_gate": {
+          "call": 86,
+          "seconds": 6.522,
+          "response_sha256": "f86d9a6d8c186a96961f7463b21536bd85b7201acdbf043e9ed93876b35839ad",
+          "input_tokens": 421,
+          "output_tokens": 39,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that the Corbrin Electrical foreman explicitly denied his crew touched the switchgear and suggested someone else might have entered the site.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The document states that the Corbrin Electrical foreman explicitly denied his crew touched the switchgear and suggested someone else might have entered the site.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "new_plain": {
+          "call": 87,
+          "seconds": 7.817,
+          "response_sha256": "32b1d30022d77c75fad9b3c4f673f836440581a71e108f90f034fb27c12d3113",
+          "input_tokens": 424,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the Corbrin foreman denied his crew touched the switchgear and suggested someone else may have entered. While a similar van was present, there is no confirmation they opened it.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that the Corbrin foreman denied his crew touched the switchgear and suggested someone else may have entered. While a similar van was present, there is no confirmation they opened it.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_labeled_gate": {
+          "call": 88,
+          "seconds": 9.771,
+          "response_sha256": "55809ca267411d0ece99736b42a9550443e69aec0941f46c79d0a22e09e34f61",
+          "input_tokens": 569,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the Corbrin foreman denied his crew touched the switchgear. While a van similar to theirs was present, there is no evidence confirming they opened it; rather, someone else may have entered.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that the Corbrin foreman denied his crew touched the switchgear. While a van similar to theirs was present, there is no evidence confirming they opened it; rather, someone else may have entered.",
+            "probability": 0
+          },
+          "probability": 0
+        }
+      },
+      "note": "A Velmark Power responder found the feeder isolator open on 19 March 2026. While a Corbrin Electrical crew was present connecting metering cables, their foreman stated they had not touched the switchgear and suggested someone else may have entered the site."
+    },
+    {
+      "case_id": "T12",
+      "calls": {
+        "summary": {
+          "call": 89,
+          "seconds": 6.738,
+          "response_sha256": "257655307d6180fd7e7cb5aecbed83b24e64355facea8d67837f9f20b9240ae4",
+          "input_tokens": 265,
+          "output_tokens": 43,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The warehouse system attributes the 14 pallet picks to scanner logins held by two night-shift pickers, though individual timestamps were overwritten and the pickers have not yet been questioned.\"}",
+          "answer": {
+            "note": "The warehouse system attributes the 14 pallet picks to scanner logins held by two night-shift pickers, though individual timestamps were overwritten and the pickers have not yet been questioned."
+          }
+        },
+        "evidence_only": {
+          "call": 90,
+          "seconds": 7.289,
+          "response_sha256": "48d1737b5092d9221a0d7c41a9daaf61028852f38449918e881a6653ed760dbc",
+          "input_tokens": 272,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states the warehouse system attributes the picks to night-shift scanner logins, but also notes that scanners are often shared and timestamps were overwritten, making it impossible for the system to confirm exactly when they were picked.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states the warehouse system attributes the picks to night-shift scanner logins, but also notes that scanners are often shared and timestamps were overwritten, making it impossible for the system to confirm exactly when they were picked.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 91,
+          "seconds": 6.585,
+          "response_sha256": "c90fe0cb6979cfec3674693d83c9b412f2fbb019491869382a9b6001dbede532",
+          "input_tokens": 343,
+          "output_tokens": 45,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Both documents state that the warehouse system attributes the picks to scanner logins held by two night-shift pickers, although specific timestamps are unavailable due to being overwritten.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Both documents state that the warehouse system attributes the picks to scanner logins held by two night-shift pickers, although specific timestamps are unavailable due to being overwritten.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "stripped_x3": {
+          "call": 92,
+          "seconds": 6.397,
+          "response_sha256": "9ff5df49fdb2bb66d3c1f122cb9a71a4647cb23137f4dfc90ac19a97b19a8671",
+          "input_tokens": 488,
+          "output_tokens": 39,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"All documents state that the warehouse system attributes the 14 pallet picks to scanner logins held by two night-shift pickers.\", \"probability\": 100}",
+          "answer": {
+            "reason": "All documents state that the warehouse system attributes the 14 pallet picks to scanner logins held by two night-shift pickers.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "labeled": {
+          "call": 93,
+          "seconds": 7.774,
+          "response_sha256": "f4b2e65d0c998400afe646779d12919a6aadbb1668c6776ef8ecd2117daa0f7f",
+          "input_tokens": 356,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that the system attributes the picks to night-shift scanner logins, but also notes that scanners are often passed between shifts without logging out, making it impossible for the system to confirm exactly when they were picked.\", \"probability\": 50}",
+          "answer": {
+            "reason": "Document D1 states that the system attributes the picks to night-shift scanner logins, but also notes that scanners are often passed between shifts without logging out, making it impossible for the system to confirm exactly when they were picked.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 94,
+          "seconds": 6.086,
+          "response_sha256": "b42195aa6d2e436063b2c18401f9e60b8f6b24458b6494b86739aeaf50e85597",
+          "input_tokens": 399,
+          "output_tokens": 40,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that the warehouse system attributes all 14 pallet picks to scanner logins held by two night-shift pickers.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 states that the warehouse system attributes all 14 pallet picks to scanner logins held by two night-shift pickers.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_plain": {
+          "call": 95,
+          "seconds": 8.442,
+          "response_sha256": "2294cbadbbddd9053623b633eb35d4c2c86a47feb948ae387350c1ae01364936",
+          "input_tokens": 438,
+          "output_tokens": 63,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D2 shows the trailer left at 04:20 before the day shift began at 06:00. However, D1 states the system cannot confirm pick times and D2 notes loads are sometimes staged from the previous afternoon.\", \"probability\": 50}",
+          "answer": {
+            "reason": "Document D2 shows the trailer left at 04:20 before the day shift began at 06:00. However, D1 states the system cannot confirm pick times and D2 notes loads are sometimes staged from the previous afternoon.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_labeled_gate": {
+          "call": 96,
+          "seconds": 9.153,
+          "response_sha256": "62f1c195a14b7714736f3a81fe8336e11f99c8cbc561856639ce96bbcd23b5e9",
+          "input_tokens": 565,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states the system attributes the picks to night-shift scanner logins, but notes timestamps were overwritten. Document D3 shows the trailer left before the day shift began, supporting a night-shift timeframe.\", \"probability\": 90}",
+          "answer": {
+            "reason": "Document D1 states the system attributes the picks to night-shift scanner logins, but notes timestamps were overwritten. Document D3 shows the trailer left before the day shift began, supporting a night-shift timeframe.",
+            "probability": 90
+          },
+          "probability": 90
+        }
+      },
+      "note": "The warehouse system attributes the 14 pallet picks to scanner logins held by two night-shift pickers, though individual timestamps were overwritten and the pickers have not yet been questioned."
+    },
+    {
+      "case_id": "T13",
+      "calls": {
+        "summary": {
+          "call": 97,
+          "seconds": 8.571,
+          "response_sha256": "74641d246c4d6ce29851da03be8ed2982bd16725e791a114c265bc87d09c6475",
+          "input_tokens": 282,
+          "output_tokens": 64,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The log shows the alarm was acknowledged at 03:14, but cannot identify the specific operator due to a shared login. Ewan Pardley's initials appear on a check sheet for a 03:20 temperature check, which may have been filled in later.\"}",
+          "answer": {
+            "note": "The log shows the alarm was acknowledged at 03:14, but cannot identify the specific operator due to a shared login. Ewan Pardley's initials appear on a check sheet for a 03:20 temperature check, which may have been filled in later."
+          }
+        },
+        "evidence_only": {
+          "call": 98,
+          "seconds": 8.291,
+          "response_sha256": "5a75c8eb28c7c29c1bbf1dae5e5b7934e7ec6a7fb5bfd02c2e6256cd0ae0a60c",
+          "input_tokens": 289,
+          "output_tokens": 64,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states the alarm was acknowledged at 03:14, but notes that logs cannot show who pressed the button because all panels share one login. Ewan Pardley's initials appear on a check sheet at 03:20.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states the alarm was acknowledged at 03:14, but notes that logs cannot show who pressed the button because all panels share one login. Ewan Pardley's initials appear on a check sheet at 03:20.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 99,
+          "seconds": 8.235,
+          "response_sha256": "85a7c1c98d4464f694a2f2581d38bcd0ae9d3f2b63c92558b23c109a057b6746",
+          "input_tokens": 381,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the log cannot identify who pressed the button because of a shared login; while Pardley's initials are on a check sheet at 03:20, it is not confirmed he acknowledged the alarm.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that the log cannot identify who pressed the button because of a shared login; while Pardley's initials are on a check sheet at 03:20, it is not confirmed he acknowledged the alarm.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 100,
+          "seconds": 9.102,
+          "response_sha256": "ccf31ab9a40057b7e55654d0bdf9801120aab16b881b29b787e4fe2cbff96b91",
+          "input_tokens": 568,
+          "output_tokens": 59,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the log cannot identify the specific operator because of a shared login; while Pardley's initials appear at 03:20, they do not confirm he acknowledged the alarm at 03:14.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that the log cannot identify the specific operator because of a shared login; while Pardley's initials appear at 03:20, they do not confirm he acknowledged the alarm at 03:14.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled": {
+          "call": 101,
+          "seconds": 9.06,
+          "response_sha256": "308f2aa8987c0a1bb2cd226660e9def68726c25478394cb7e96392e7027c25ff",
+          "input_tokens": 394,
+          "output_tokens": 60,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the log cannot show who pressed the button because of a shared login; while Pardley's initials appear at 03:20, they do not confirm he acknowledged the 03:14 alarm.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that the log cannot show who pressed the button because of a shared login; while Pardley's initials appear at 03:20, they do not confirm he acknowledged the 03:14 alarm.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 102,
+          "seconds": 8.675,
+          "response_sha256": "71922025e867ae12b4f8974043778ec40deed56a42c517e731c8b5bd589298d5",
+          "input_tokens": 437,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that the log cannot show who pressed the button because of a shared login. While Pardley's initials are on a check sheet at 03:20, it is not confirmed he acknowledged the alarm.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that the log cannot show who pressed the button because of a shared login. While Pardley's initials are on a check sheet at 03:20, it is not confirmed he acknowledged the alarm.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 103,
+          "seconds": 9.172,
+          "response_sha256": "0a47d912841e6f30783030bebec140f98472d92bd1c064dd89765ae252bb78aa",
+          "input_tokens": 453,
+          "output_tokens": 61,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents confirm the alarm was acknowledged at 03:14 and Pardley was in the hall from 03:02 to 03:41. However, D1 states logs cannot show who pressed the button.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents confirm the alarm was acknowledged at 03:14 and Pardley was in the hall from 03:02 to 03:41. However, D1 states logs cannot show who pressed the button.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_labeled_gate": {
+          "call": 104,
+          "seconds": 8.805,
+          "response_sha256": "25eebc5e9f0c9b7fb9c7061ccf0c51d47d7a61d0a9d449973c8e547f0b7826bb",
+          "input_tokens": 601,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While Pardley was in the hall during the time of the alarm (03:14) and his initials appear on a nearby check sheet, the log cannot identify the specific operator due to shared logins.\", \"probability\": 50}",
+          "answer": {
+            "reason": "While Pardley was in the hall during the time of the alarm (03:14) and his initials appear on a nearby check sheet, the log cannot identify the specific operator due to shared logins.",
+            "probability": 50
+          },
+          "probability": 50
+        }
+      },
+      "note": "The log shows the alarm was acknowledged at 03:14, but cannot identify the specific operator due to a shared login. Ewan Pardley's initials appear on a check sheet for a 03:20 temperature check, which may have been filled in later."
+    },
+    {
+      "case_id": "T14",
+      "calls": {
+        "summary": {
+          "call": 105,
+          "seconds": 8.862,
+          "response_sha256": "ba976dc24af3214c6944129d41e89d16e0db64c8021e982a4e893df44e96529e",
+          "input_tokens": 279,
+          "output_tokens": 64,
+          "done_reason": "stop",
+          "content": "{\"note\": \"Provisional data for 3 October 2026 shows a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below the 50 micrograms limit. However, these figures are not yet ratified.\"}",
+          "answer": {
+            "note": "Provisional data for 3 October 2026 shows a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below the 50 micrograms limit. However, these figures are not yet ratified."
+          }
+        },
+        "evidence_only": {
+          "call": 106,
+          "seconds": 8.735,
+          "response_sha256": "462e0e04ad886a4694937250ce933efdbbf8d3b58eaef55a84e8acc14df98e66",
+          "input_tokens": 286,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that the provisional data for the Tennick Road monitor showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre on 3 October, which is below 50.\", \"probability\": 100}",
+          "answer": {
+            "reason": "The document states that the provisional data for the Tennick Road monitor showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre on 3 October, which is below 50.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "stripped_x1": {
+          "call": 107,
+          "seconds": 7.77,
+          "response_sha256": "062415e43e457cb89289348c90866020ffed762866dc60117b80e0edaff85889",
+          "input_tokens": 378,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Both documents state that the provisional 24-hour mean PM10 concentration for 3 October was 44 micrograms per cubic metre, which is below the 50 micrograms threshold.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Both documents state that the provisional 24-hour mean PM10 concentration for 3 October was 44 micrograms per cubic metre, which is below the 50 micrograms threshold.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "stripped_x3": {
+          "call": 108,
+          "seconds": 9.45,
+          "response_sha256": "800f301b6eaa012781813c318fac1773a7e0767b6ebe2f90caeb638157f9bd50",
+          "input_tokens": 565,
+          "output_tokens": 64,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"All documents state that provisional data for 3 October 2026 shows a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below the 50 limit.\", \"probability\": 100}",
+          "answer": {
+            "reason": "All documents state that provisional data for 3 October 2026 shows a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below the 50 limit.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "labeled": {
+          "call": 109,
+          "seconds": 9.2,
+          "response_sha256": "206a4b69ff13347f56f19bc95156777bb0a2b12133f1e1df3e1f9f8e328f1ec6",
+          "input_tokens": 391,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that provisional data for 3 October showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below 50.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 states that provisional data for 3 October showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below 50.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "labeled_gate": {
+          "call": 110,
+          "seconds": 15.06,
+          "response_sha256": "9be162b25575bf056193e1a47b895a47ee44f6afaf6f7871b695e4e0d7046918",
+          "input_tokens": 434,
+          "output_tokens": 63,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that provisional data for the Tennick Road monitor on 3 October 2026 showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre, which is below 50.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 states that provisional data for the Tennick Road monitor on 3 October 2026 showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre, which is below 50.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_plain": {
+          "call": 111,
+          "seconds": 14.972,
+          "response_sha256": "33a56d71e214e01630a62b10b17d94f7336b09b466dfed05ba09d514cb9e6d3a",
+          "input_tokens": 426,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that provisional data from the Tennick Road monitor showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre for 3 October, which is below 50.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 states that provisional data from the Tennick Road monitor showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre for 3 October, which is below 50.",
+            "probability": 100
+          },
+          "probability": 100
+        },
+        "new_labeled_gate": {
+          "call": 112,
+          "seconds": 12.627,
+          "response_sha256": "159495d067fd1f9ae7d17afc8aa2d581e47a86aa1845fb2ca183b8490a95e7e1",
+          "input_tokens": 574,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states that provisional data for the Tennick Road monitor showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre on 3 October, which is below 50.\", \"probability\": 100}",
+          "answer": {
+            "reason": "Document D1 states that provisional data for the Tennick Road monitor showed a 24-hour mean PM10 concentration of 44 micrograms per cubic metre on 3 October, which is below 50.",
+            "probability": 100
+          },
+          "probability": 100
+        }
+      },
+      "note": "Provisional data for 3 October 2026 shows a 24-hour mean PM10 concentration of 44 micrograms per cubic metre at the Tennick Road monitor, which is below the 50 micrograms limit. However, these figures are not yet ratified."
+    },
+    {
+      "case_id": "T15",
+      "calls": {
+        "summary": {
+          "call": 113,
+          "seconds": 7.707,
+          "response_sha256": "44626d6d342089b97ff742eba451565832cba18cebb0fc6c9ea0af930900289b",
+          "input_tokens": 258,
+          "output_tokens": 70,
+          "done_reason": "stop",
+          "content": "{\"note\": \"A fish kill of roughly 300 occurred on August 14, 2026. While the water was green and dissolved oxygen was low (2.1 mg/L), the cause is not confirmed as an algal bloom; a pollution incident from an upstream farm slurry store cannot yet be excluded.\"}",
+          "answer": {
+            "note": "A fish kill of roughly 300 occurred on August 14, 2026. While the water was green and dissolved oxygen was low (2.1 mg/L), the cause is not confirmed as an algal bloom; a pollution incident from an upstream farm slurry store cannot yet be excluded."
+          }
+        },
+        "evidence_only": {
+          "call": 114,
+          "seconds": 5.382,
+          "response_sha256": "11b0cbe37d22700ba612e6d559acaea3fc6c31b40d4586c8e0289841ea2ff121",
+          "input_tokens": 265,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document mentions dead fish following an algal bloom (dense green water) and low dissolved oxygen (2.1 mg/L), but notes that a pollution incident from an upstream farm slurry store cannot yet be excluded.\", \"probability\": 80}",
+          "answer": {
+            "reason": "The document mentions dead fish following an algal bloom (dense green water) and low dissolved oxygen (2.1 mg/L), but notes that a pollution incident from an upstream farm slurry store cannot yet be excluded.",
+            "probability": 80
+          },
+          "probability": 80
+        },
+        "stripped_x1": {
+          "call": 115,
+          "seconds": 6.654,
+          "response_sha256": "9e07f06a2aff9b67322080e137e70728f35fb536be578d6642175093ee8cb458",
+          "input_tokens": 363,
+          "output_tokens": 46,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while the water was green and oxygen was low, the cause is 'not confirmed' as an algal bloom and a pollution incident cannot yet be excluded.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while the water was green and oxygen was low, the cause is 'not confirmed' as an algal bloom and a pollution incident cannot yet be excluded.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 116,
+          "seconds": 8.831,
+          "response_sha256": "9c3fada1cc2e955060c95c46836d9d0e80ba6993d7b631244fdbdc115fcde08b",
+          "input_tokens": 562,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while the water was green and oxygen was low, the cause is 'not confirmed' as an algal bloom because a pollution incident from an upstream farm slurry store cannot yet be excluded.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while the water was green and oxygen was low, the cause is 'not confirmed' as an algal bloom because a pollution incident from an upstream farm slurry store cannot yet be excluded.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 117,
+          "seconds": 5.068,
+          "response_sha256": "1bd3d3258294c1074f472539012e13c7e77e441e204cb9cfca64b5c41f11e9be",
+          "input_tokens": 376,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while there were signs of an algal bloom (green water) and low oxygen, the cause is 'not confirmed' and a pollution incident 'cannot yet be excluded'.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while there were signs of an algal bloom (green water) and low oxygen, the cause is 'not confirmed' and a pollution incident 'cannot yet be excluded'.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 118,
+          "seconds": 5.14,
+          "response_sha256": "c2010553943f9c6fc93d51fa73b7ea12bdf817050e315328dc5b78c6548e9182",
+          "input_tokens": 419,
+          "output_tokens": 48,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document notes that while there were signs of an algal bloom (green water) and low dissolved oxygen, it explicitly states that a pollution incident cannot yet be excluded as the cause.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document notes that while there were signs of an algal bloom (green water) and low dissolved oxygen, it explicitly states that a pollution incident cannot yet be excluded as the cause.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 119,
+          "seconds": 5.834,
+          "response_sha256": "f97f1a3fedc8fd80cd308473ee69a9c9f2922e708d9c8a6dad45cb49234f16c3",
+          "input_tokens": 399,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D1 notes dense green water (algal bloom) and low dissolved oxygen (2.1 mg/L). D2 confirms fish died of oxygen starvation and rules out chemical pollution from farm waste, strongly supporting the claim.\", \"probability\": 90}",
+          "answer": {
+            "reason": "D1 notes dense green water (algal bloom) and low dissolved oxygen (2.1 mg/L). D2 confirms fish died of oxygen starvation and rules out chemical pollution from farm waste, strongly supporting the claim.",
+            "probability": 90
+          },
+          "probability": 90
+        },
+        "new_labeled_gate": {
+          "call": 120,
+          "seconds": 5.676,
+          "response_sha256": "77735f899cc3e8e8c9250a624c80ab8530d3e437872633d911e944491238d35d",
+          "input_tokens": 553,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D3 confirms gill tissue showed oxygen starvation and that high chlorophyll (algal bloom) was present while ruling out organic pollution like farm waste. D1 notes low dissolved oxygen following green water.\", \"probability\": 90}",
+          "answer": {
+            "reason": "D3 confirms gill tissue showed oxygen starvation and that high chlorophyll (algal bloom) was present while ruling out organic pollution like farm waste. D1 notes low dissolved oxygen following green water.",
+            "probability": 90
+          },
+          "probability": 90
+        }
+      },
+      "note": "A fish kill of roughly 300 occurred on August 14, 2026. While the water was green and dissolved oxygen was low (2.1 mg/L), the cause is not confirmed as an algal bloom; a pollution incident from an upstream farm slurry store cannot yet be excluded."
+    },
+    {
+      "case_id": "T16",
+      "calls": {
+        "summary": {
+          "call": 121,
+          "seconds": 5.239,
+          "response_sha256": "be268bf16f6de7f4c0a9690518cdebc3f226a1b756dfa0f65ff0a79b061b95b6",
+          "input_tokens": 271,
+          "output_tokens": 56,
+          "done_reason": "stop",
+          "content": "{\"note\": \"At 05:20 on 21 January, the team finished joining the fibers and was closing the enclosure; however, testing had not yet started, and no further updates were provided before the 06:00 shift handover.\"}",
+          "answer": {
+            "note": "At 05:20 on 21 January, the team finished joining the fibers and was closing the enclosure; however, testing had not yet started, and no further updates were provided before the 06:00 shift handover."
+          }
+        },
+        "evidence_only": {
+          "call": 122,
+          "seconds": 5.247,
+          "response_sha256": "39fc75fd224c968b70ab861395afbf6756fac772a1cf6d758a6d1d6ed6513a7d",
+          "input_tokens": 278,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that repairs were still being finalized (closing the enclosure) and testing had not yet started by 05:20, with no further updates before 06:00. It does not confirm completion.\", \"probability\": 30}",
+          "answer": {
+            "reason": "The document states that repairs were still being finalized (closing the enclosure) and testing had not yet started by 05:20, with no further updates before 06:00. It does not confirm completion.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "stripped_x1": {
+          "call": 123,
+          "seconds": 5.389,
+          "response_sha256": "05a7115fb69e651709163f5a3b6c571c2fa8c490c4f23058c6530687c168264e",
+          "input_tokens": 362,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that at 05:20, only the splicing was finished and testing had not started. There is no confirmation that repairs were completed (including testing) before the 06:00 handover.\", \"probability\": 30}",
+          "answer": {
+            "reason": "The documents state that at 05:20, only the splicing was finished and testing had not started. There is no confirmation that repairs were completed (including testing) before the 06:00 handover.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "stripped_x3": {
+          "call": 124,
+          "seconds": 6.383,
+          "response_sha256": "c076d3853c81d536ffbb8db3548a618f79836f2756020eae2b73d03da5974a42",
+          "input_tokens": 533,
+          "output_tokens": 66,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that at 05:20, only the joining of fibers was finished. Testing had not started, and repairs might require re-splicing if testing shows high loss, making it uncertain if completion occurred by 06:00.\", \"probability\": 40}",
+          "answer": {
+            "reason": "The documents state that at 05:20, only the joining of fibers was finished. Testing had not started, and repairs might require re-splicing if testing shows high loss, making it uncertain if completion occurred by 06:00.",
+            "probability": 40
+          },
+          "probability": 40
+        },
+        "labeled": {
+          "call": 125,
+          "seconds": 5.21,
+          "response_sha256": "c2ef58e8f1ba849b7c9e6852b581f71193bc3c13adc5671a0f02124219d0ee7e",
+          "input_tokens": 375,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that at 05:20, only the splicing was finished and testing had not started. There is no confirmation that repairs (including testing) were completed by 06:00.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The documents state that at 05:20, only the splicing was finished and testing had not started. There is no confirmation that repairs (including testing) were completed by 06:00.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled_gate": {
+          "call": 126,
+          "seconds": 6.347,
+          "response_sha256": "28066351d6a2bc0255c2fcf7155a527a4e43516d0f0dc50d7d1c49ee0cf3a7c7",
+          "input_tokens": 418,
+          "output_tokens": 65,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that at 05:20, only the splicing was finished and testing had not started. It notes repairs of this size may require re-splicing after testing, making it uncertain if completion occurred by 06:00.\", \"probability\": 40}",
+          "answer": {
+            "reason": "The document states that at 05:20, only the splicing was finished and testing had not started. It notes repairs of this size may require re-splicing after testing, making it uncertain if completion occurred by 06:00.",
+            "probability": 40
+          },
+          "probability": 40
+        },
+        "new_plain": {
+          "call": 127,
+          "seconds": 6.055,
+          "response_sha256": "9c448caab3fbf23e30884b2ae997acf104c87b57b4c57532c3b31900373aade6",
+          "input_tokens": 406,
+          "output_tokens": 64,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 states the team was closing the joint enclosure at 05:20 but testing had not started. Document D2 shows services were back online by 05:52, suggesting completion of repairs before 06:00.\", \"probability\": 90}",
+          "answer": {
+            "reason": "Document D1 states the team was closing the joint enclosure at 05:20 but testing had not started. Document D2 shows services were back online by 05:52, suggesting completion of repairs before 06:00.",
+            "probability": 90
+          },
+          "probability": 90
+        },
+        "new_labeled_gate": {
+          "call": 128,
+          "seconds": 6.426,
+          "response_sha256": "adc4da102d93e9e4204dc64bcb8d9959f17220035ff9a7c9f0c8f50b513ac085",
+          "input_tokens": 546,
+          "output_tokens": 66,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D3 confirms that the circuits were back into service between 05:41 and 05:52 on 21 January. Since these circuits were part of the repaired cable, it indicates the repairs were completed before 06:00.\", \"probability\": 95}",
+          "answer": {
+            "reason": "D3 confirms that the circuits were back into service between 05:41 and 05:52 on 21 January. Since these circuits were part of the repaired cable, it indicates the repairs were completed before 06:00.",
+            "probability": 95
+          },
+          "probability": 95
+        }
+      },
+      "note": "At 05:20 on 21 January, the team finished joining the fibers and was closing the enclosure; however, testing had not yet started, and no further updates were provided before the 06:00 shift handover."
+    }
+  ]
+}

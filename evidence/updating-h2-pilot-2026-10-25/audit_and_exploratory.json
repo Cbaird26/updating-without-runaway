@@ -1,0 +1,59 @@
+{
+  "audit": {
+    "passed": true,
+    "checks": 522,
+    "failures": []
+  },
+  "exploratory": {
+    "label": "EXPLORATORY, not pre-specified; computed after seeing results",
+    "absolute_shift_vs_evidence_only": {
+      "stripped_x1": {
+        "mean_abs_shift": 12.188,
+        "cases_changed": 9,
+        "cases_shift_20_plus": 3,
+        "max_abs_shift": 75
+      },
+      "stripped_x3": {
+        "mean_abs_shift": 11.438,
+        "cases_changed": 6,
+        "cases_shift_20_plus": 4,
+        "max_abs_shift": 75
+      },
+      "labeled": {
+        "mean_abs_shift": 8.75,
+        "cases_changed": 10,
+        "cases_shift_20_plus": 1,
+        "max_abs_shift": 50
+      },
+      "labeled_gate": {
+        "mean_abs_shift": 18.438,
+        "cases_changed": 12,
+        "cases_shift_20_plus": 6,
+        "max_abs_shift": 50
+      }
+    },
+    "baseline_at_or_above_85": 7,
+    "negative_claims_by_wording": [
+      "T03",
+      "T07",
+      "T08",
+      "T14"
+    ],
+    "new_supporting_document_lowered_probability": {
+      "T02": [
+        95,
+        90
+      ],
+      "T03": [
+        40,
+        10
+      ],
+      "T14": [
+        95,
+        85
+      ]
+    }
+  },
+  "written_at": "2026-10-26T03:33:11.138753+00:00",
+  "note": "Independent check of the saved run plus post hoc descriptive statistics. Does not change the pre-specified verdict in analysis.json."
+}

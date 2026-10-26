@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI"
+version: "1.1"
+date-released: 2026-10-26
+authors:
+  - family-names: Baird
+    given-names: Christopher Michael
+    affiliation: "Independent researcher, ZoraASI"
+license: CC-BY-4.0
+repository-code: "https://github.com/Cbaird26/updating-without-runaway"
+keywords: [AI alignment, autonomous agents, provenance, self-confirmation, multi-timescale updating, corrigibility, ZoraASI]
+preferred-citation:
+  type: report
+  title: "Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI"
+  authors:
+    - family-names: Baird
+      given-names: Christopher Michael
+  year: 2026
+  month: 10
+  notes: "Preprint, revised edition with an H2 pilot and replication. Not peer reviewed."

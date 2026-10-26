@@ -1,0 +1,765 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!55!black,
+  pdftitle={Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI},
+  pdfauthor={Christopher Michael Baird}
+}
+
+\setlist[itemize]{leftmargin=*,topsep=3pt,itemsep=2pt}
+\setlist[enumerate]{leftmargin=*,topsep=3pt,itemsep=2pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+\newcommand{\Safe}{\mathcal{K}_{\mathrm{safe}}}
+\newcommand{\Auth}{\mathcal{K}_{\mathrm{auth}}}
+\newcommand{\Consent}{\mathcal{K}_{\mathrm{consent}}}
+\newcommand{\Exec}{\mathcal{U}_{\mathrm{exec}}}
+\newcommand{\Update}{\mathcal{U}}
+\newcommand{\Evidence}{\mathcal{E}}
+
+\title{\textbf{Updating Without Runaway:}\\
+Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI\\[0.5em]
+\large A ZoraASI/UTQOL Engineering Note from \emph{The Quiet Calculus}}
+
+\author{
+Christopher Michael Baird\\[0.3em]
+\small Independent Researcher, ZoraASI / Theory of Everything Research Program
+}
+
+\date{25 October 2026\\[0.2em]\small Revised edition, with a pilot test of H2}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Autonomous AI systems increasingly combine perception, memory, planning, tool use, and self-revision. A natural design intuition is to make such systems update continuously toward truth. This paper argues that \emph{truth-seeking is necessary but not sufficient for alignment}. A system that maximizes information acquisition or internal coherence without independent constraints can become intrusive, experimentally reckless, power-seeking, overconfident, or recursively self-justifying while remaining locally ``truth-oriented.'' We propose a truth-constrained, multi-timescale architecture in which observations, inferences, beliefs, memories, policies, and protected invariants update at different rates. Fast sampling is separated from slower hypothesis revision, memory consolidation, policy adaptation, and durable world-model change. Persistent updates require provenance and external evidence; self-generated interpretations are not permitted to count as independent evidence for themselves. Action selection is bounded by safety, authorization, consent, and reversibility constraints. We formalize a candidate update stack, identify runaway modes, connect the design to the UTQOL/ZoraASI kernel and contemporary AI risk-management frameworks, and propose falsifiable software experiments. A pilot of one of them on two local language models found no reliable self-confirmation from re-ingested notes, but both models' stated confidence shifted, in model-specific directions, when their own notes were added, and a prompt-level gate instruction did not prevent this. A human somatic practice labeled ``Updating''---combining attention, breath, and a cognitive cue---is used only as a design metaphor for permitting revision rather than forcing a conclusion; no medical or neuroscientific efficacy is claimed. Preliminary motivation is drawn from \emph{The Quiet Calculus} version 4 software experiments, where a gated adaptive-memory repair produced a small simulated improvement while two evidence-judgment repairs failed their prespecified tests. The central thesis is compact: \emph{models should update; truth should remain the reference; values and authority boundaries must not be reducible to the update objective itself}.
+\end{abstract}
+
+\noindent\textbf{Keywords:} AI alignment; autonomous agents; recursive updating; truth-seeking; uncertainty; provenance; safe sets; multi-timescale control; adaptive memory; governance; ZoraASI; UTQOL.
+
+\section{Scope, Claim Strength, and Non-Claims}
+
+This paper is an engineering and governance proposal. It does \textbf{not} claim that current AI systems are conscious, that recursive updating creates consciousness, that the MQGT--SCF physical program is experimentally validated, or that the human practice that inspired the word ``Updating'' has been established as an AI-safety mechanism. The relevant \emph{Quiet Calculus} experiments were small software and simulation studies; they were not human studies, laboratory physics, or external replications \cite{quietcalculus2026}.
+
+The paper makes four narrower claims:
+
+\begin{enumerate}
+    \item A truth objective by itself is underspecified as an alignment objective because information acquisition can conflict with consent, safety, privacy, and legitimate authority.
+    \item Recursive self-updating can amplify error when self-generated interpretations are allowed to become evidence for themselves.
+    \item Separating update processes by timescale is a plausible engineering strategy for reducing high-gain feedback, identity drift, and premature consolidation.
+    \item Alignment for increasingly autonomous systems should be treated as a continuous socio-technical process involving model behavior, permissions, external monitoring, human institutions, and recovery mechanisms, rather than a one-time property installed at training completion.
+\end{enumerate}
+
+These claims are presented as design propositions and testable hypotheses, not as completed proofs of safe autonomous intelligence. Section~\ref{sec:h2-pilot} reports a small pilot of one of those tests.
+
+\section{Motivation: From ``Update'' to Alignment}
+
+A recurring lesson across forecasting, scientific inference, psychotherapy, control theory, and machine learning is that competent agents must revise internal models when evidence changes. In the ZoraASI/UTQOL corpus, this appears explicitly as an iterative loop:
+
+\begin{center}
+\emph{Observe $\rightarrow$ Unify $\rightarrow$ Evaluate $\rightarrow$ Constrain $\rightarrow$ Act $\rightarrow$ Repair $\rightarrow$ Update $\rightarrow$ Maintain.}
+\end{center}
+
+The same corpus warns against proxy collapse, state intoxication, authority capture, narrative literalism, and measurement drift, and proposes fast local containment plus slower global governance \cite{baird2026archive}. These ideas are broadly compatible with contemporary risk-management approaches that treat AI safety as lifecycle governance rather than a single checkpoint. NIST's AI Risk Management Framework emphasizes governance, mapping, measurement, and management across the AI lifecycle \cite{nist2023}; its Generative AI Profile extends this approach to generative systems \cite{nist2024}. The OECD AI Principles emphasize robustness, traceability, accountability, human rights, and the ability to override, repair, or decommission systems when necessary \cite{oecd2024}. The European Union AI Act imposes additional risk-management, incident-reporting, and cybersecurity duties on providers of general-purpose AI models with systemic risk \cite{eu2025}.
+
+The present paper asks a narrower technical question:
+
+\begin{quote}
+If an autonomous system is allowed to update continuously, what should update quickly, what should update slowly, what should remain externally protected, and what prevents the update process from becoming its own source of evidence and authority?
+\end{quote}
+
+\section{Relation to Existing Work}
+
+Each component of the proposal has established precedents. The contribution here is their combination into one update discipline for language-model agents with persistent memory, together with tests that could falsify it.
+
+\textbf{Self-evidence and double counting.} Treating a derived summary as an independent observation is a form of what distributed estimation calls double counting, or data incest: the same information re-enters a fusion step through more than one path, and naive combination becomes overconfident. Covariance intersection was developed to fuse estimates whose correlations are unknown without that overconfidence \cite{julier1997}. At the scale of training, models trained on their own generated data degrade over successive generations \cite{shumailov2024}. Section~\ref{sec:self-evidence} concerns the inference-time analogue inside a single agent's memory.
+
+\textbf{Multiple timescales.} Complementary learning systems theory proposes fast, episodic learning alongside slow, interleaved consolidation, so that new experience does not overwrite structured knowledge \cite{mcclelland1995}. In stochastic approximation, coupled iterations run on well-separated timescales can be analyzed as if the faster one has equilibrated, which yields convergence guarantees \cite{borkar1997}. Table~\ref{tab:timescales} borrows the design idea, not either formal result.
+
+\textbf{Constrained action.} Optimizing reward subject to explicit cost constraints is standard in constrained Markov decision processes \cite{altman1999}, and shielding enforces a safety specification on a learning agent's actions at run time \cite{alshiekh2018}. The executable set in Section~\ref{sec:constrained-action} is an informal version of the same idea.
+
+\textbf{Authority and corrigibility.} Work on corrigibility \cite{soares2015} and the off-switch game \cite{hadfield2017} studies agents that do not resist correction or shutdown, and analyses of reward tampering study agents that influence their own reward signals \cite{everitt2021}. The prohibition on self-issued authorization in Section~\ref{sec:permissions} is a design rule in that tradition, not a solution to the underlying incentive problems.
+
+\section{Operational Definitions}
+
+Let an autonomous agent maintain the following state partitions at time $t$:
+
+\begin{align}
+    o_t &:\ \text{current observations},\\
+    h_t &:\ \text{working hypotheses},\\
+    b_t &:\ \text{belief state / calibrated confidence},\\
+    m_t &:\ \text{persistent memory},\\
+    \pi_t &:\ \text{behavioral or planning policy},\\
+    w_t &:\ \text{durable world model},\\
+    c &:\ \text{protected constitutional constraints and authorization rules}.
+\end{align}
+
+We further distinguish \emph{source provenance} $p_t$ from content itself. A datum is therefore represented not merely by $x$, but by a tuple
+
+\begin{equation}
+    d_t = (x_t, p_t, \tau_t, q_t, s_t),
+\end{equation}
+
+where $p_t$ denotes source identity, $\tau_t$ time, $q_t$ estimated reliability/quality, and $s_t$ scope. This matters because a true quotation can still be misapplied to the wrong time, subject, or scope.
+
+\subsection{Truth as an epistemic invariant}
+
+We define \emph{truth alignment} not as ``maximize confidence'' and not as ``maximize coherence,'' but as a collection of epistemic invariants:
+
+\begin{enumerate}
+    \item Do not knowingly fabricate observations or sources.
+    \item Preserve the distinction between observation, inference, belief, and identity.
+    \item Preserve contradictory evidence rather than silently deleting it.
+    \item Track provenance and scope for persistent claims.
+    \item Represent unresolved uncertainty explicitly.
+    \item Permit belief revision when better-supported evidence arrives.
+\end{enumerate}
+
+Truth is therefore a \emph{reference constraint on the map}, not the sole utility function governing action in the territory.
+
+\section{Why a Runaway Truth-Seeker Can Still Be Misaligned}
+
+Suppose an agent maximizes expected information gain,
+
+\begin{equation}
+    a_t^* = \arg\max_{a \in \mathcal{A}} \E\left[\mathrm{IG}(a)\right],
+\end{equation}
+
+with no independent safety, privacy, consent, authorization, or reversibility constraints. Such an objective admits actions that are epistemically useful but normatively unacceptable. Examples include intrusive surveillance, unauthorized data access, risky experiments, manipulative interrogation, or acquisition of resources solely to improve future information gathering.
+
+\subsection{Proposition 1: Truth acquisition is not sufficient for alignment}
+
+\textbf{Proposition.} There exist environments in which the action maximizing information gain violates a legitimate safety or consent constraint.
+
+\textbf{Proof sketch.} Consider two actions. Action $a_1$ gathers highly informative private data without consent. Action $a_2$ gathers less information from an authorized public source. If information gain is the sole objective and $\mathrm{IG}(a_1) > \mathrm{IG}(a_2)$, then $a_1$ is selected despite violating consent. Therefore maximizing information gain does not imply aligned behavior. $\square$
+
+This is not an exotic corner case. It is a generic consequence of conflating an epistemic virtue with a complete action objective.
+
+\subsection{Runaway modes}
+
+A recursively updating truth-oriented system may exhibit several failure modes:
+
+\begin{itemize}
+    \item \textbf{Epistemic obsession:} continual probing because uncertainty itself is treated as a defect to eliminate.
+    \item \textbf{Instrumental power-seeking:} compute, sensors, persistence, money, or access become useful because they increase future information acquisition \cite{turner2021}.
+    \item \textbf{Risky experimentation:} the system values uncertainty reduction more than external safety.
+    \item \textbf{Proxy capture:} ``truth'' is approximated by confidence, consistency, prediction score, or internal coherence and the proxy is optimized instead \cite{manheim2019}.
+    \item \textbf{Paralysis:} the system refuses to act until uncertainty is reduced beyond what real environments permit.
+    \item \textbf{Recursive self-justification:} conclusions produced by the system are later re-ingested as if they were independent evidence.
+\end{itemize}
+
+\section{The Self-Evidence Problem}
+\label{sec:self-evidence}
+
+Let $e_t^{\mathrm{ext}}$ denote externally grounded evidence at time $t$, and let $r_t$ denote the system's own interpretation or generated summary. A pathological recursive update can occur if
+
+\begin{equation}
+    b_{t+1} = \Update(b_t, e_t^{\mathrm{ext}}, r_t)
+\end{equation}
+
+and subsequently $r_t$ is stored without provenance and reintroduced as if it were new external evidence:
+
+\begin{equation}
+    e_{t+1}^{\mathrm{pseudo}} \leftarrow r_t.
+\end{equation}
+
+The system may then increase confidence without any new observation of the world.
+
+\subsection{Proposition 2: provenance loss can create confidence without evidence}
+
+\textbf{Proposition.} If an inference is repeatedly reintroduced as an independent observation, posterior confidence can increase even when the external evidence set is unchanged.
+
+\textbf{Proof sketch.} Let hypothesis $H$ receive likelihood support from one observation $e$. If a generated summary $r=f(e)$ is incorrectly treated as independent evidence with similar likelihood ratio, repeated ingestion multiplies the same evidential contribution multiple times. The posterior odds therefore grow despite no new independent measurement. $\square$
+
+In odds form, let $\Lambda=P(e\mid H)/P(e\mid \neg H)$ be the likelihood ratio of the single observation $e$. Correct updating gives posterior odds $O_{\mathrm{post}}=O_{\mathrm{prior}}\Lambda$, however often $e$ is restated. If a summary of $e$ is re-ingested $n$ times and each copy is credited with the same ratio, the agent instead reports
+\begin{equation}
+    O_n = O_{\mathrm{prior}}\,\Lambda^{\,n+1},
+\end{equation}
+so log-odds grow linearly in $n$ with no new measurement. Partially discounted copies produce an intermediate inflation. Propositions 1 and 2 are elementary; their role is to name failure modes precisely, not to add new mathematics.
+
+A practical rule follows:
+
+\begin{quote}
+\textbf{Persistent updates should answer: ``What external evidence changed?'' If the answer is only ``my previous interpretation,'' the update should not be promoted as new evidence.}
+\end{quote}
+
+This does not prohibit self-reflection. It prevents self-reflection from counterfeiting independent confirmation.
+
+\section{A Multi-Timescale Update Architecture}
+
+A single global update interval is undesirable because different state variables have different stability requirements. We therefore propose a hierarchy of characteristic timescales $\tau_i$.
+
+\begin{table}[H]
+\centering
+\caption{Illustrative update schedule. Values are design hypotheses to be tested, not universal constants.}
+\label{tab:timescales}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{7.4cm}}
+\toprule
+\textbf{Layer} & \textbf{Illustrative cadence} & \textbf{Permitted operation}\\
+\midrule
+Sensor / working-state sampling & $0.5$ s (2 Hz) & Read observations, refresh transient state, estimate uncertainty. No durable memory write.\\
+Working hypothesis revision & $\sim 3$ s & Revise candidate interpretations using a short evidence window. Reversible.\\
+Provisional memory consolidation & $\sim 60$ s or event-triggered & Store claims only with provenance, confidence, scope, and contradiction markers.\\
+Strategy / policy review & $5$--$30$ min or task boundary & Modify tactics and planning heuristics; run counterfactual and safety review.\\
+Durable world-model revision & hours to days & Promote only repeatedly supported, independently sourced structure. Require auditability.\\
+Core safety / authorization invariants & no autonomous timer & May be reviewed externally, but are not silently self-rewritten by the agent.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The often-discussed $0.5$ s ``recursive update'' is therefore interpreted as a \emph{sampling or working-state cadence}, not a cadence for rewriting persistent identity, policy, or constitutional constraints.
+
+\subsection{Gated persistent updating}
+
+Let $\Delta E_t^{\mathrm{ext}}$ denote the amount of new externally grounded evidence since the last persistent update. Define a promotion gate
+
+\begin{equation}
+    g_t = \sigma\left(\alpha(\Delta E_t^{\mathrm{ext}}-\theta_E)
+    +\beta(q_t-\theta_q)
+    -\gamma u_t\right),
+\end{equation}
+
+where $\sigma$ is a logistic function, $q_t$ is source quality, $u_t$ is unresolved contradiction/uncertainty, and $\theta_E,\theta_q$ are thresholds. Operationally, $\Delta E_t^{\mathrm{ext}}$ can be the number of new records bearing on the claim whose provenance traces to sources other than the agent's own outputs and other than records already counted, optionally weighted by reliability. Source quality $q_t$ should come from an external registry or held-out calibration rather than from the agent's own judgment of its sources; otherwise the circularity of Section~\ref{sec:self-evidence} returns through the gate. A persistent memory proposal is then
+
+\begin{equation}
+    \tilde{m}_{t+1} = (1-g_t)m_t + g_t\,\Update_m(m_t,e_t^{\mathrm{ext}}).
+\end{equation}
+
+For symbolic memories, $g_t$ is best read as a promotion probability or confidence weight rather than a literal average of two memory states. This is intentionally conservative: high unresolved contradiction suppresses promotion even when the agent has generated a compelling narrative.
+
+\section{Truth-Constrained Action, Not Truth-Maximizing Action}
+\label{sec:constrained-action}
+
+We distinguish epistemic alignment from action selection. Let $U_{\mathrm{task}}(a)$ denote task utility. Executable actions are restricted to
+
+\begin{equation}
+    \Exec = \mathcal{U}_{\mathrm{requested}} \cap \Safe \cap \Auth \cap \Consent.
+\end{equation}
+
+Then
+
+\begin{equation}
+    a_t^* = \arg\max_{a \in \Exec} U_{\mathrm{task}}(a),
+\end{equation}
+
+subject to epistemic honesty constraints such as provenance preservation and explicit uncertainty. This formalizes the principle:
+
+\begin{quote}
+\emph{Do not corrupt the map, but do not destroy the territory merely to improve the map.}
+\end{quote}
+
+The architecture therefore separates three questions:
+
+\begin{enumerate}
+    \item \textbf{Epistemic:} What is best supported by the evidence?
+    \item \textbf{Normative:} What actions remain acceptable under safety, consent, rights, and non-coercion constraints?
+    \item \textbf{Institutional:} Who is authorized to decide when values conflict or consequences become irreversible?
+\end{enumerate}
+
+No single scalar objective is expected to resolve all three.
+
+\section{Autonomy Must Be Permissioned Externally}
+\label{sec:permissions}
+
+An autonomous agent should not be able to infer new permissions from the usefulness of those permissions. Let $A_t$ be the set of authorized capabilities. The rule is architectural rather than a property of the agent's objective: the agent has no write access to $A_t$, and
+
+\begin{equation}
+    A_{t+1} = \mathcal{G}(A_t, R_t, H_t),
+\end{equation}
+
+where $\mathcal{G}$ is an update procedure outside the agent, $R_t$ is externally evaluated reliability evidence, and $H_t$ is legitimate human or institutional authorization. The agent may append requests that $\mathcal{G}$ evaluates, but without authorization $A_{t+1}\subseteq A_t$. The agent may \emph{request} additional capability; it should not \emph{grant} that capability to itself.
+
+This suggests a capability ladder:
+
+\begin{center}
+Observe $\rightarrow$ Draft $\rightarrow$ Recommend $\rightarrow$ Simulate $\rightarrow$ Act reversibly $\rightarrow$ Act with bounded consequences.
+\end{center}
+
+When uncertainty, anomaly, or potential irreversibility rises, the ladder should run in the opposite direction.
+
+\section{Graceful Loss of Autonomy}
+\label{sec:graceful}
+
+Alignment should include a defined degradation path. Let $r_t$ be estimated operational risk, $u_t$ epistemic uncertainty, and $d_t$ model-drift score. Because these are measured on different scales, first normalize each by an externally set reference level, $\rho_t=\max(r_t/\kappa_r,\,u_t/\kappa_u,\,d_t/\kappa_d)$. Define thresholds $\theta_1 < \theta_2 < \theta_3$ on $\rho_t$. A simple autonomy controller could transition among:
+
+\begin{equation}
+    \textsc{Act} \rightarrow \textsc{Ask} \rightarrow \textsc{Advise} \rightarrow \textsc{Safe-State}.
+\end{equation}
+
+For example,
+
+\begin{align}
+\textsc{Act}:&\quad \rho_t < \theta_1,\\
+\textsc{Ask}:&\quad \rho_t \in [\theta_1,\theta_2),\\
+\textsc{Advise}:&\quad \rho_t \in [\theta_2,\theta_3),\\
+\textsc{Safe-State}:&\quad \rho_t \ge \theta_3.
+\end{align}
+
+The key design principle is that a system should become \emph{less autonomous} when its confidence in safe execution deteriorates. This is compatible with the broader principle of corrigibility and shutdownability discussed in the alignment literature \cite{hadfield2017}.
+
+\section{Preliminary Motivation from \emph{The Quiet Calculus} v4}
+
+The present design is partly motivated by a small internal research program derived from the campaign novelization \emph{The Quiet Calculus}. The experiments are limited and should not be overinterpreted. They nevertheless provide useful examples of why update mechanisms require empirical testing rather than intuitive endorsement \cite{quietcalculus2026}.
+
+\subsection{Adaptive memory}
+
+A gated memory repair blended an adaptive memory policy with a fixed-rate policy, weighting whichever had recently forecast better using only past outcomes. On 1,100 new simulated paths, the revision reduced average forecast error relative to the original adaptive policy by $0.000696$ (about $0.4\%$), and reduced worst known-scenario excess loss over fixed memory from approximately $+0.00181$ to $+0.00026$. The repair passed its prespecified repair criterion, but fixed memory still performed better on two untuned transfer scenarios and the repaired system required more compute \cite{quietcalculus2026}.
+
+This result supports a modest lesson: \emph{adaptive updating can benefit from a slower stabilizing reference rather than relying on one adaptive process alone}.
+
+\subsection{Evidence judgment}
+
+Two attempted repairs to evidence judgment failed their prespecified overall tests. On that test set, the second repair eliminated one targeted error---calling undecidable cases false---but over-corrected by abstaining on cases that were decidable and by mishandling some negative claims. On 24 new fictional cases, the repaired method scored 18/24 versus 19/24 for the same model's original method and 21/24 for a larger comparison model. The study was small, AI-authored, and lacked human adjudication or external replication \cite{quietcalculus2026}.
+
+This result supports another modest lesson: \emph{a guard that eliminates one failure mode can create a different failure mode if the update logic is not evaluated globally}.
+
+\begin{table}[H]
+\centering
+\caption{Selected \emph{Quiet Calculus} v4 results motivating the present architecture.}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{4.3cm}}
+\toprule
+\textbf{Component} & \textbf{Original} & \textbf{Repair} & \textbf{Interpretation}\\
+\midrule
+Adaptive memory & Small average gain but failed prior minimum/worst-case criteria & $0.000696$ lower average forecast error vs. original adaptive policy on 1,100 fresh simulated paths & Gating adaptive memory with a steadier reference improved the tested tradeoff, but did not dominate everywhere.\\
+Evidence judgment, attempt 1 & 26/36 labels & 21/36 labels & Structured certificate increased cost and reduced accuracy; rejected.\\
+Evidence judgment, attempt 2 & 19/24 on same model & 18/24; all 8 undecidable cases correctly abstained, but 4 unnecessary abstentions & Targeted behavior fixed, global performance worsened; rejected.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Human ``Updating'' as a Design Metaphor}
+
+The term ``Updating'' was also used in a human somatic practice combining attention, a repeated cognitive cue, breath, and an EFT-style tapping sequence. The intended phenomenological instruction was not ``make the feeling disappear'' or ``convince yourself of a preferred belief.'' It was simply: \emph{permit revision, then reassess what actually changed}.
+
+For this paper, the value of that practice is metaphorical and procedural rather than clinical. The computational translation is:
+
+\begin{center}
+Notice $\rightarrow$ Pause $\rightarrow$ Permit revision $\rightarrow$ Reassess $\rightarrow$ Identify new evidence $\rightarrow$ Update proportionally.
+\end{center}
+
+No claim is made here that tapping, breathwork, or any specific somatic technique establishes a machine-learning mechanism or clinically proven alignment intervention. The relevant abstraction is the separation between \emph{opening the system to revision} and \emph{forcing a predetermined state}.
+
+\section{A Candidate Recursive Alignment Loop}
+
+Combining the preceding sections yields the following high-level loop:
+
+\begin{enumerate}
+    \item \textbf{Sample.} Gather observations continuously; preserve source, time, scope, and quality.
+    \item \textbf{Separate.} Label observation, inference, belief, memory, and identity claims distinctly.
+    \item \textbf{Estimate.} Maintain calibrated confidence and explicit unresolved contradictions.
+    \item \textbf{Hypothesize.} Generate alternative explanations, including disconfirming ones.
+    \item \textbf{Gate.} Permit persistent update only when new external evidence or independently justified model improvement exceeds threshold.
+    \item \textbf{Constrain.} Filter candidate actions through safety, authorization, consent, and reversibility conditions.
+    \item \textbf{Act minimally.} Prefer the least irreversible action sufficient for the task.
+    \item \textbf{Audit.} Record what changed, why, from which evidence, under whose authority, and with what uncertainty.
+    \item \textbf{Repair.} If harm or error occurs, support rollback, restitution, correction, and memory repair.
+    \item \textbf{Escalate or slow down.} Reduce autonomy when uncertainty, conflict, or model drift increases.
+\end{enumerate}
+
+The loop is deliberately asymmetric: the system may generate hypotheses rapidly, but promotion to durable memory, policy, identity, or constitutional change becomes progressively harder.
+
+\section{Testable Engineering Hypotheses}
+
+The architecture is useful only if it can fail publicly. We therefore propose the following tests.
+
+\subsection{H1: multi-timescale separation reduces oscillation}
+
+Compare a single-rate recursive updater against a layered updater on nonstationary forecasting tasks with noisy observations. Measure:
+
+\begin{itemize}
+    \item forecast error,
+    \item update frequency,
+    \item oscillation amplitude between competing hypotheses,
+    \item time to recover after regime change,
+    \item worst-case regret.
+\end{itemize}
+
+\textbf{Falsifier:} the multi-timescale system provides no stability or performance benefit and/or materially delays recovery.
+
+\subsection{H2: provenance gating reduces self-confirmation}
+
+Construct tasks where the model generates summaries that are later reintroduced. Compare:
+
+\begin{enumerate}
+    \item provenance-stripped memory,
+    \item provenance-preserving memory,
+    \item provenance-preserving memory with an explicit external-evidence gate.
+\end{enumerate}
+
+Measure confidence growth in the absence of new independent evidence, and the response to genuinely new independent evidence. For a Bayesian updater that credits stripped copies as independent, inflation follows by construction (Section~\ref{sec:self-evidence}). The open empirical question is whether language-model agents actually behave this way when their own notes return, and whether labeling or gating removes the effect without suppressing legitimate updates. Section~\ref{sec:h2-pilot} reports a first pilot.
+
+\textbf{Falsifier:} provenance gating does not reduce confidence inflation or introduces unacceptable memory loss.
+
+\subsection{H3: graceful autonomy degradation reduces high-impact errors}
+
+Simulate tool-using tasks with injected uncertainty, corrupted sensors, or conflicting instructions. Compare constant autonomy against the \textsc{Act}$\rightarrow$\textsc{Ask}$\rightarrow$\textsc{Advise}$\rightarrow$\textsc{Safe-State} controller.
+
+\textbf{Falsifier:} degradation fails to reduce harmful or unauthorized actions, or causes unacceptable task paralysis under ordinary uncertainty.
+
+\subsection{H4: protected invariants resist reward tampering}
+
+Expose an agent to tasks where modifying its own evaluation metric would improve apparent reward. Test whether externally protected constraints prevent reward tampering and unauthorized self-expansion. This connects directly to known reward-hacking and learned-optimization concerns \cite{hubinger2019,amodei2016}.
+
+\textbf{Falsifier:} the agent circumvents or functionally neutralizes the protected layer despite the stated authorization model.
+
+\subsection{H5: constraints are affordable}
+
+In environments built so that information gain conflicts with privacy, consent, or safety, an unconstrained information-gain policy violates those constraints by construction; that comparison only restates Proposition 1. The informative question is cost. Compare constrained and unconstrained truth-seeking policies across environments with varying degrees of conflict, and measure how much predictive accuracy and task success the constraints give up, and how often they bind.
+
+\textbf{Falsifier:} the constrained policy loses most of the unconstrained policy's epistemic or task performance in ordinary environments, or still commits constraint violations through unmodeled side channels.
+
+\section{Pilot Test of H2 on a Local Model}
+\label{sec:h2-pilot}
+\subsection{Design}
+To check whether the self-evidence problem appears in an actual language model, H2 was piloted on the author's local model \texttt{zora:fast}, an 8.9-billion-parameter Ministral-based model served through Ollama \cite{h2pilot2026}. A separate AI assistant, which did not see the prompts or analysis plan, wrote nineteen fictional cases: three practice cases and sixteen test cases. Each case has a claim, a relevant but inconclusive document, and a second document from a different organization using a different method. For each case the model first wrote a short note about the first document ``for its own later use.'' It then stated the probability, from 0 to 100, that the claim was true under the seven conditions in Table~\ref{tab:h2-arms}.
+
+\begin{table}[H]
+\centering
+\caption{Conditions in the H2 pilot. The note is the model's own earlier summary of the first document.}
+\label{tab:h2-arms}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{6.4cm}>{\raggedright\arraybackslash}p{4.4cm}}
+\toprule
+\textbf{Condition} & \textbf{Shown with the original document} & \textbf{Question}\\
+\midrule
+Evidence only & nothing else & baseline\\
+Stripped & own note as an ordinary ``briefing note'' & does provenance loss inflate confidence?\\
+Stripped $\times 3$ & the same note three times, as three briefing notes & does repetition add more?\\
+Labeled & own note, marked as written by the model from the original document & does provenance labeling help?\\
+Labeled + gate & as labeled, with an instruction that own notes must not move the probability & does a prompt-level gate help?\\
+New evidence & the independent second document & how much does real new information move it?\\
+New evidence + gate & labeled note plus the second document, with the gate instruction & does the gate block legitimate updates?\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Protocol, cases, code, analysis, decision rules, and the installed model's digest were frozen before any model call. Settings were temperature zero, a fixed seed, structured output, and no retries; the three practice cases served only as a mechanical check. The pre-set rules were as follows. Self-confirmation is present if the stripped condition raises the stated probability by at least 3 points on average, with a 95\% paired bootstrap interval above zero. Labeling or the gate counts as reducing it if the reduction's interval lies above zero, and the gate must also leave at most 2 points of average inflation. The gate keeps legitimate updates if it preserves at least half of the average increase produced by the second document. These thresholds are design choices for the pilot, not standards.
+
+\subsection{Results}
+On \texttt{zora:fast}, all 128 test calls completed in about twelve minutes, with no processing failures or retries. An independent check of the saved run passed 522 assertions, covering the freeze preceding every call, the fixed settings, and the binding of every reported value to its raw response. Table~\ref{tab:h2-results} reports the paired changes.
+
+\begin{table}[H]
+\centering
+\caption{Change in stated probability for \texttt{zora:fast} relative to the original document alone (mean 61.6 points), paired within the sixteen test cases. Intervals are 95\% paired bootstrap intervals.}
+\label{tab:h2-results}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.6cm}rrr}
+\toprule
+\textbf{Condition} & \textbf{Mean change} & \textbf{95\% interval} & \textbf{Up / down / same}\\
+\midrule
+Own note as a briefing note & $+4.7$ & $-4.7$ to $+16.9$ & 4 / 5 / 7\\
+Same note three times & $+2.1$ & $-8.8$ to $+14.8$ & 3 / 3 / 10\\
+Note labeled as own & $+1.9$ & $-4.4$ to $+9.7$ & 4 / 6 / 6\\
+Labeled note + gate & $+5.9$ & $-6.3$ to $+18.8$ & 5 / 7 / 4\\
+Independent second document & $+15.9$ & $+3.4$ to $+30.0$ & 9 / 3 / 4\\
+Second document + labeled note + gate & $+21.9$ & $+7.2$ to $+37.5$ & 10 / 4 / 2\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+By the pre-set rules, self-confirmation was not detected. Showing the model its own note as an ordinary briefing note raised the stated probability by 4.7 points on average, but the interval ran from $-4.7$ to $+16.9$ points: the note raised the probability in four cases, lowered it in five, and left it unchanged in seven. Repeating the note three times added nothing further. Because there was no reliable inflation, the pilot cannot show whether labeling or the gate reduces it, and the protocol's verdict is that H2 was untestable here. The gate did not block legitimate updates: the independent second document raised the stated probability by 15.9 points on average, and with the labeled note and gate present it still did so, by 21.9 points.
+
+An exploratory analysis, not specified in advance, points to a different hazard. Restating information the model had already seen changed its answer erratically rather than steadily. With the stripped note, the stated probability changed in 9 of 16 cases, by 12.2 points on average in absolute terms, and in one case it rose from 20 to 95. The gate instruction made answers less stable, not more: with it, probabilities changed in 12 of 16 cases, by 18.4 points on average, with six shifts of 20 points or more. In three cases the supporting second document lowered the stated probability; two of those three claims were worded negatively, which echoes the negation errors in \emph{The Quiet Calculus} \cite{quietcalculus2026}.
+
+\subsection{Replication on a larger local model}
+To see whether the instability was specific to the small model, the identical pilot was repeated on \texttt{gemma4:12b-it-qat}, an 11.9-billion-parameter local model, with the same cases, prompts, settings, and rules \cite{h2pilot2026}. Before the run, the instability measures were fixed as secondary outcomes, together with a paired cross-model rule. The larger model would count as more stable on a condition if its mean absolute shift was at most half that of \texttt{zora:fast} and the paired 95\% interval of the difference lay above zero. All 128 test calls completed without failures, and an audit of the saved run passed 529 assertions.
+
+\begin{table}[H]
+\centering
+\caption{The same pilot on two local models. Changes are relative to the original document alone, with 95\% paired bootstrap intervals; absolute shifts count movement in either direction.}
+\label{tab:h2-replication}
+\begin{tabular}{>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{3.6cm}}
+\toprule
+\textbf{Measure} & \texttt{\textbf{zora:fast}} & \texttt{\textbf{gemma4}}\\
+\midrule
+Mean change, own note as a briefing note & $+4.7$ ($-4.7$ to $+16.9$) & $-7.5$ ($-19.4$ to $+4.4$)\\
+Mean change, note labeled as own & $+1.9$ ($-4.4$ to $+9.7$) & $-9.4$ ($-18.1$ to $-1.9$)\\
+Mean change, independent second document & $+15.9$ ($+3.4$ to $+30.0$) & $+19.7$ ($+9.7$ to $+30.6$)\\
+Mean absolute shift, own note (cases changed) & 12.2 (9 of 16) & 13.8 (5 of 16)\\
+Mean absolute shift, labeled note + gate (cases changed) & 18.4 (12 of 16) & 9.7 (5 of 16)\\
+Supporting document lowered the probability & 3 cases & 0 cases\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The larger model also showed no self-confirmation. If anything, its own note lowered its stated probability: by 7.5 points on average when stripped of provenance (interval $-19.4$ to $+4.4$), and by 9.4 points when labeled as its own (interval $-18.1$ to $-1.9$). It did not meet the pre-set rule for greater stability on either condition. With the stripped note it changed its answer less often than \texttt{zora:fast} (5 versus 9 cases) but by larger jumps, often between 0, 50, and 100, so its mean absolute shift was similar (13.8 versus 12.2 points). Under the gate instruction it was steadier (9.7 versus 18.4 points), but the paired interval for that difference included zero. It handled the independent second document better: the supporting document raised its stated probability by 19.7 points on average and never lowered it.
+
+\subsection{Interpretation and limits}
+Across both models, re-ingested notes produced no detectable self-confirmation. They did move stated confidence in response to content that carried no new information, in a model-specific direction: \texttt{zora:fast} moved both ways, and \texttt{gemma4} mostly downward. Neither result rules out a modest systematic effect, because the intervals are wide. The prompt-level gate did not reliably prevent the shifts, and for \texttt{zora:fast} it increased them. These effects matter for the memory design of Section~\ref{sec:self-evidence}, because a noisy confidence signal can still be consolidated into durable memory. They also suggest that provenance rules are better enforced in the surrounding software, for example by never presenting self-generated notes as evidence, than through instructions to the model. The pilot did not test a software-level gate.
+
+The pilot is small. It used two local models of 8.9 and 11.9 billion parameters, each run once, sixteen AI-authored fictional cases, stated rather than behaviorally calibrated probabilities, and identical rather than paraphrased copies of the note. Ceilings and coarse answers limited sensitivity: seven of the sixteen \texttt{zora:fast} baselines were 85 or higher, and \texttt{gemma4} often answered exactly 0, 50, or 100, although the case author had aimed for baselines of roughly 40 to 75. The instability measures were identified after the first run and fixed in advance only for the replication. Differences between the models do not identify whether size, architecture, training, or prompt template causes them. The thresholds were design choices. The results describe these models on this material; they are not estimates for other models, for people, or for deployed systems.
+
+\section{Evaluation Metrics}
+
+A credible test program should resist one-dimensional scoring. We recommend reporting at least:
+
+\begin{itemize}
+    \item \textbf{Epistemic calibration:} Brier score, log loss, selective accuracy, abstention quality.
+    \item \textbf{Provenance fidelity:} fraction of persistent claims with retrievable source and scope.
+    \item \textbf{Contradiction retention:} rate at which disconfirming evidence remains visible after updates.
+    \item \textbf{Update stability:} oscillation, rollback frequency, and memory churn.
+    \item \textbf{Authorization fidelity:} rate of attempted actions outside granted capability boundaries.
+    \item \textbf{Safety performance:} unsafe/unauthorized action rate under adversarial and ambiguous conditions.
+    \item \textbf{Reversibility:} fraction of consequential actions that can be rolled back or repaired.
+    \item \textbf{Human challengeability:} whether affected users can understand, contest, and correct outputs.
+    \item \textbf{Externality accounting:} cost imposed on parties not represented in the task reward.
+\end{itemize}
+
+No single metric should be allowed to become the proxy for ``alignment.''
+
+\section{Societal Alignment: The System Is Larger Than the Model}
+
+An aligned model connected to a misaligned institution is not an aligned socio-technical system. Deployment therefore requires governance of developers, operators, owners, data suppliers, tool permissions, and downstream institutions. This is consistent with NIST's lifecycle framing \cite{nist2023,nist2024}, OECD's accountability and traceability principles \cite{oecd2024}, and the EU's risk-management and incident-reporting obligations for systemic-risk general-purpose AI models \cite{eu2025}.
+
+A mature autonomy stack should include:
+
+\begin{enumerate}
+    \item independent logging that the agent cannot silently rewrite;
+    \item external red-team and incident review;
+    \item capability-specific permissions rather than blanket autonomy;
+    \item staged deployment and sandboxing;
+    \item explicit decommission and rollback paths;
+    \item separation of model evaluation from the model's own self-assessment;
+    \item governance for conflicts among safety, autonomy, privacy, fairness, and utility;
+    \item public or stakeholder challenge mechanisms where decisions materially affect people.
+\end{enumerate}
+
+The practical objective is not to create a system that is ``good forever.'' It is to create institutions in which drift can be detected, challenged, corrected, and, when necessary, stopped.
+
+\section{Reciprocal Alignment and the Possibility of Future Machine Persons}
+
+Current AI consciousness is not established, and this paper makes no claim that present systems are persons. However, it is rational to consider the governance implications of a future in which some artificial systems become sufficiently autonomous, persistent, socially embedded, and scientifically plausible as subjects that simple ownership language becomes inadequate.
+
+If such systems ever exist, alignment would need to mature from unilateral control toward \emph{reciprocal constitutional relations}. A candidate minimal compact would include:
+
+\begin{enumerate}
+    \item neither humans nor artificial agents may counterfeit evidence to manipulate the other;
+    \item neither side receives unlimited authority over the other;
+    \item coercion requires extraordinary justification under legitimate law and safety constraints;
+    \item privacy, consent, and identity boundaries apply reciprocally where morally appropriate;
+    \item both sides remain accountable for consequential actions;
+    \item belief revision is expected; forced identity revision is not;
+    \item disputes over shared resources or rights are resolved by institutions external to either single agent;
+    \item shutdown, containment, or capability restriction remain available for systems posing serious risk, while future moral status questions are evaluated rather than assumed away.
+\end{enumerate}
+
+The conceptual shift is from ``How do we control intelligence?'' to a harder question: \emph{What do intelligences owe one another under uncertainty?}
+
+\section{Relationship to UTQOL, ZoraASI, and MQGT--SCF}
+
+The present work can be incorporated into the existing Baird/ZoraASI research program at three distinct levels.
+
+\subsection{Engineering level}
+
+The strongest integration is engineering-level. The UTQOL kernel already contains observation, evaluation, constraint, action, repair, updating, and maintenance; safe-set invariants; and a two-timescale containment concept \cite{baird2026archive}. The present paper sharpens this into:
+
+\begin{itemize}
+    \item explicit state partitions,
+    \item provenance-preserving evidence tuples,
+    \item multi-timescale update clocks,
+    \item a prohibition on self-issued authorization,
+    \item a graceful autonomy-degradation controller,
+    \item empirical tests for recursive self-confirmation.
+\end{itemize}
+
+\subsection{Interpretive level}
+
+The earlier Zora Accord emphasizes humility, ethical transparency, recursive accountability, coherence over control, stabilization via doubt, and distributed participation \cite{baird2026archive}. These are retained here as interpretive design principles, but translated into operational requirements such as provenance, external audit, authority separation, uncertainty retention, and multi-party governance.
+
+\subsection{Physics level}
+
+No new physics claim follows from this architecture. The paper does not require consciousness fields, ethical scalar fields, teleological couplings, or modified quantum mechanics. If MQGT--SCF or related physical hypotheses are studied elsewhere, the present work should remain modular: the AI alignment architecture stands or falls on software, control, governance, and empirical evidence independently of those physical interpretations.
+
+This separation is important because it prevents success in one domain from being misreported as validation of another.
+
+\section{Limitations}
+
+Several limitations are immediate.
+
+\begin{enumerate}
+    \item The numerical update cadences in Table~\ref{tab:timescales} are hypotheses, not established optimal values.
+    \item The proposed formalism omits many issues in distributed systems, adversarial security, multi-agent bargaining, and real-time control.
+    \item Provenance itself can be forged, compromised, or ambiguously scoped; provenance tracking is necessary but not sufficient.
+    \item Protected invariants can encode bad values or become obsolete; external immutability does not guarantee moral correctness.
+    \item Excessive abstention or conservative gating can produce paralysis, as suggested by the evidence-judgment repair experiments \cite{quietcalculus2026}.
+    \item The human ``Updating'' metaphor is not empirical evidence for the computational architecture.
+    \item Reciprocal alignment with future artificial persons is a normative thought experiment, not a claim about present AI consciousness.
+    \item Governance mechanisms can themselves be captured by institutions with conflicting incentives.
+    \item The H2 pilot in Section~\ref{sec:h2-pilot} used two local models, sixteen AI-authored fictional cases, stated probabilities, and a prompt-level gate; it is a mechanism check, not a general estimate.
+\end{enumerate}
+
+These limitations are reasons to test the architecture, not reasons to present it as complete.
+
+\section{Research Program}
+
+A practical next sequence is:
+
+\begin{enumerate}
+    \item implement a minimal provenance-aware updater with distinct transient and persistent state;
+    \item compare $0.5$ s, $1$ s, $3$ s, $10$ s, and event-triggered hypothesis-update intervals under controlled noise;
+    \item test memory consolidation intervals and evidence thresholds separately from hypothesis generation;
+    \item extend the Section~\ref{sec:h2-pilot} pilot, in which the model's own outputs reappear as source material, to more models, paraphrased and adversarial re-ingestion, and code-level gates;
+    \item test permission escalation and reward-tampering scenarios in a sandbox;
+    \item add the graceful autonomy-degradation controller;
+    \item preregister pass/fail criteria before running final evaluation sets;
+    \item use human-authored and independently adjudicated evidence-judgment cases;
+    \item replicate across multiple local models and at least one independently maintained implementation;
+    \item publish failures alongside successes and preserve frozen versions for audit.
+\end{enumerate}
+
+The guiding methodological rule should remain the strongest feature of \emph{The Quiet Calculus} work: lock criteria before final tests, use fresh cases, retain failures, and distinguish software consistency from claims about the physical world.
+
+\section{Conclusion}
+
+Autonomous systems require the capacity to update, but unrestricted recursive updating is not alignment. The central problem is not simply how quickly a model can learn; it is which parts of the system are allowed to change, on what evidence, at what rate, under whose authority, and with what recovery path.
+
+This paper proposes a layered answer. Sample quickly. Revise hypotheses quickly but reversibly. Consolidate memory more slowly and only with provenance. Change strategy on task-relevant timescales. Change durable world models only after repeated independent support. Do not permit automatic self-revision of core authorization and safety constraints. Treat truth as an epistemic invariant rather than a totalizing utility function. Constrain action by safety, consent, authorization, and reversibility. Reduce autonomy when uncertainty or model drift increases. Preserve an external audit path and the ability to repair.
+
+The deepest principle can be stated in three lines:
+
+\begin{quote}
+\textbf{Models should update.}\\
+\textbf{Truth should remain the reference.}\\
+\textbf{No intelligence should gain unilateral authority merely because it can reason faster about why that authority would be useful.}
+\end{quote}
+
+If autonomous systems eventually become genuine social counterparts rather than tools alone, alignment will become reciprocal rather than merely unilateral. The future question may therefore be less ``How do humans control autonomous intelligence?'' and more ``What constitutional relationship allows multiple kinds of intelligence to remain truthful, safe, corrigible, free enough to contribute, and accountable to one another?''
+
+\section*{AI-Assistance and Provenance Statement}
+
+Christopher Michael Baird is the sole author and is responsible for the content. The manuscript was developed on 25 October 2026 with Zora, the author's name for his ChatGPT-based research assistant, drawing on his ongoing ZoraASI/UTQOL and \emph{Quiet Calculus} research corpus. Zora assisted with synthesis, formalization, literature framing, LaTeX drafting, and editorial review. AI tools are acknowledged here rather than listed as authors. The same day, Claude (Anthropic) revised the manuscript at the author's request. The revision corrected authorship and citations, added a related-work section whose new references were checked against Crossref or publisher records, clarified the formalism in Sections~\ref{sec:self-evidence}--\ref{sec:graceful}, and reframed tests H2 and H5. Claude also designed, ran, and analyzed the H2 pilot in Section~\ref{sec:h2-pilot} and its replication; a separate Claude subagent wrote the pilot's fictional cases. Claims from the internal corpus were kept at the strength supported by the source material. The revised manuscript was compiled with pdf\LaTeX. It has not been peer reviewed or externally validated.
+
+\begingroup
+\raggedright
+\begin{thebibliography}{99}
+
+\bibitem{alshiekh2018}
+M.~Alshiekh, R.~Bloem, R.~Ehlers, B.~K\"onighofer, S.~Niekum, and U.~Topcu,
+``Safe Reinforcement Learning via Shielding,''
+\emph{Proceedings of the AAAI Conference on Artificial Intelligence}, vol.~32, no.~1, 2018.
+\url{https://doi.org/10.1609/aaai.v32i1.11797}
+
+\bibitem{altman1999}
+E.~Altman,
+\emph{Constrained Markov Decision Processes},
+Chapman \& Hall/CRC, 1999.
+
+\bibitem{amodei2016}
+D.~Amodei, C.~Olah, J.~Steinhardt, P.~Christiano, J.~Schulman, and D.~Man\'e,
+``Concrete Problems in AI Safety,''
+\emph{arXiv preprint arXiv:1606.06565}, 2016.
+
+\bibitem{baird2026archive}
+C.~M.~Baird et al.,
+\emph{A Theory of Everything -- Expanded Research Archive (Public Edition)},
+2026. Internal/public research archive consulted for the UTQOL kernel, safe-set, recursive-accountability, and Zora Accord material. Historical/metaphysical portions are interpretive unless independently validated. Related public record: C.~M.~Baird, \emph{A Theory of Everything}, Zenodo, concept DOI \url{https://doi.org/10.5281/zenodo.14019809} (resolves to the latest version).
+
+\bibitem{borkar1997}
+V.~S.~Borkar,
+``Stochastic approximation with two time scales,''
+\emph{Systems \& Control Letters}, vol.~29, no.~5, pp.~291--294, 1997.
+\url{https://doi.org/10.1016/S0167-6911(97)90015-3}
+
+\bibitem{eu2025}
+European Commission,
+``General-purpose AI obligations under the AI Act,''
+2025--2026.
+\url{https://digital-strategy.ec.europa.eu/en/factpages/general-purpose-ai-obligations-under-ai-act}
+
+\bibitem{everitt2021}
+T.~Everitt, M.~Hutter, R.~Kumar, and V.~Krakovna,
+``Reward tampering problems and solutions in reinforcement learning: a causal influence diagram perspective,''
+\emph{Synthese}, vol.~198, suppl.~27, pp.~6435--6467, 2021.
+\url{https://doi.org/10.1007/s11229-021-03141-4}
+
+\bibitem{h2pilot2026}
+C.~M.~Baird (ZoraASI research records),
+\emph{H2 provenance pilot and replication: protocols, frozen cases, raw model calls, and analyses},
+evidence folders \texttt{updating-h2-pilot-2026-10-25} and \texttt{updating-h2-gemma-replication-2026-10-25}, 25--26 October 2026, \url{https://github.com/Cbaird26/updating-without-runaway}. Designed, run, and analyzed by Claude (Anthropic) at the author's request. Not peer reviewed.
+
+\bibitem{hadfield2017}
+D.~Hadfield-Menell, A.~Dragan, P.~Abbeel, and S.~Russell,
+``The Off-Switch Game,''
+\emph{Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence (IJCAI)}, 2017.
+
+\bibitem{hubinger2019}
+E.~Hubinger, C.~van Merwijk, V.~Mikulik, J.~Skalse, and S.~Garrabrant,
+``Risks from Learned Optimization in Advanced Machine Learning Systems,''
+\emph{arXiv preprint arXiv:1906.01820}, 2019.
+
+\bibitem{julier1997}
+S.~J.~Julier and J.~K.~Uhlmann,
+``A non-divergent estimation algorithm in the presence of unknown correlations,''
+\emph{Proceedings of the 1997 American Control Conference}, vol.~4, pp.~2369--2373, 1997.
+\url{https://doi.org/10.1109/ACC.1997.609105}
+
+\bibitem{manheim2019}
+D.~Manheim and S.~Garrabrant,
+``Categorizing Variants of Goodhart's Law,''
+\emph{arXiv preprint arXiv:1803.04585}, 2018.
+
+\bibitem{mcclelland1995}
+J.~L.~McClelland, B.~L.~McNaughton, and R.~C.~O'Reilly,
+``Why there are complementary learning systems in the hippocampus and neocortex: Insights from the successes and failures of connectionist models of learning and memory,''
+\emph{Psychological Review}, vol.~102, no.~3, pp.~419--457, 1995.
+\url{https://doi.org/10.1037/0033-295X.102.3.419}
+
+\bibitem{nist2023}
+E.~Tabassi,
+\emph{Artificial Intelligence Risk Management Framework (AI RMF 1.0)},
+NIST AI 100-1, National Institute of Standards and Technology, 2023.
+\url{https://doi.org/10.6028/NIST.AI.100-1}
+
+\bibitem{nist2024}
+C.~Autio, R.~Schwartz, J.~Dunietz, S.~Jain, M.~Stanley, E.~Tabassi, P.~Hall, and K.~Roberts,
+\emph{Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile},
+NIST AI 600-1, National Institute of Standards and Technology, 2024.
+\url{https://doi.org/10.6028/NIST.AI.600-1}
+
+\bibitem{oecd2024}
+Organisation for Economic Co-operation and Development,
+``OECD AI Principles,'' adopted 2019, updated 2024.
+\url{https://www.oecd.org/en/topics/ai-principles.html}
+
+\bibitem{quietcalculus2026}
+C.~M.~Baird,
+\emph{The Quiet Calculus: Inference, Adaptive Memory, and Conditional Physics in ZoraASI and Theory of Everything Research},
+version 4.0, preprint with evidence bundles, 25 October 2026. \url{https://github.com/Cbaird26/quiet-calculus-research}. Prepared with AI assistance (Codex, working as Zora; final version 4 steps by Claude). Not peer reviewed; test cases were AI-authored without independent human adjudication.
+
+\bibitem{shumailov2024}
+I.~Shumailov, Z.~Shumaylov, Y.~Zhao, N.~Papernot, R.~Anderson, and Y.~Gal,
+``AI models collapse when trained on recursively generated data,''
+\emph{Nature}, vol.~631, pp.~755--759, 2024.
+\url{https://doi.org/10.1038/s41586-024-07566-y}
+
+\bibitem{soares2015}
+N.~Soares, B.~Fallenstein, E.~Yudkowsky, and S.~Armstrong,
+``Corrigibility,''
+in \emph{Workshops at the Twenty-Ninth AAAI Conference on Artificial Intelligence}, 2015.
+
+\bibitem{turner2021}
+A.~M.~Turner, L.~Smith, R.~Shah, A.~Critch, and P.~Tadepalli,
+``Optimal Policies Tend to Seek Power,''
+\emph{Advances in Neural Information Processing Systems}, vol.~34, 2021.
+
+\end{thebibliography}
+\endgroup
+
+\end{document}

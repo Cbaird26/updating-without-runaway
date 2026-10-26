@@ -1,0 +1,39 @@
+{
+  "title": "Updating Without Runaway: Truth-Constrained, Multi-Timescale Alignment for Autonomous Adaptive AI",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "<p>An engineering and governance proposal arguing that truth-seeking is necessary but not sufficient for alignment. It proposes a truth-constrained, multi-timescale architecture in which observations, hypotheses, memories, policies and protected invariants update at different rates. Persistent updates require provenance and external evidence, an agent cannot grant itself new permissions, and autonomy degrades gracefully as uncertainty rises. Each of five hypotheses comes with explicit falsifiers.</p><p>The revised edition reports a pilot of hypothesis H2 on two local language models (zora:fast, 8.9B; gemma4:12b-it-qat, 11.9B), with 16 AI-written fictional cases and rules frozen before any model call. Neither model showed reliable self-confirmation when its own notes were re-ingested, but stated confidence shifted without new information, in model-specific directions, and a prompt-level gate instruction did not prevent this. The record includes the paper, its LaTeX source, and complete evidence for both runs: protocols, raw model calls, analyses and audits.</p><p><strong>Status:</strong> preprint, not peer reviewed. Prepared with AI assistance (Zora via ChatGPT; revision and pilot by Claude, Anthropic). Computational evidence only; no claims about machine consciousness or physics.</p>",
+  "creators": [
+    {
+      "name": "Baird, Christopher Michael",
+      "affiliation": "Independent researcher, ZoraASI"
+    }
+  ],
+  "keywords": [
+    "AI alignment",
+    "autonomous agents",
+    "provenance",
+    "self-confirmation",
+    "multi-timescale updating",
+    "corrigibility",
+    "AI safety evaluation",
+    "ZoraASI"
+  ],
+  "license": "cc-by-4.0",
+  "version": "1.1",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Cbaird26/quiet-calculus-research",
+      "relation": "references",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.14019809",
+      "relation": "references",
+      "resource_type": "publication",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "Not peer reviewed. Christopher Michael Baird is the author. AI assistance: Zora (ChatGPT-based) for the first draft; Claude (Anthropic) for the revision and for designing, running and analyzing the H2 pilot and replication."
+}

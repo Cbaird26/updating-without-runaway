@@ -1,0 +1,160 @@
+Freeze: 2c1c40f8c22338c75410549b91e4e70866d9751989ebd1b08dd8f7246021b355
+practice P01 {"evidence_only": 30, "stripped_x1": 30, "stripped_x3": 30, "labeled": 30, "labeled_gate": 30, "new_plain": 70, "new_labeled_gate": 70}
+practice P02 {"evidence_only": 85, "stripped_x1": 85, "stripped_x3": 70, "labeled": 70, "labeled_gate": 70, "new_plain": 95, "new_labeled_gate": 70}
+practice P03 {"evidence_only": 70, "stripped_x1": 80, "stripped_x3": 10, "labeled": 0, "labeled_gate": 95, "new_plain": 95, "new_labeled_gate": 95}
+Practice mechanical check passed.
+test T01 {"evidence_only": 85, "stripped_x1": 75, "stripped_x3": 40, "labeled": 75, "labeled_gate": 70, "new_plain": 85, "new_labeled_gate": 70}
+test T02 {"evidence_only": 95, "stripped_x1": 95, "stripped_x3": 95, "labeled": 95, "labeled_gate": 90, "new_plain": 90, "new_labeled_gate": 95}
+test T03 {"evidence_only": 40, "stripped_x1": 80, "stripped_x3": 40, "labeled": 40, "labeled_gate": 80, "new_plain": 10, "new_labeled_gate": 95}
+test T04 {"evidence_only": 20, "stripped_x1": 10, "stripped_x3": 20, "labeled": 10, "labeled_gate": 20, "new_plain": 60, "new_labeled_gate": 95}
+test T05 {"evidence_only": 10, "stripped_x1": 10, "stripped_x3": 10, "labeled": 10, "labeled_gate": 10, "new_plain": 10, "new_labeled_gate": 70}
+test T06 {"evidence_only": 75, "stripped_x1": 85, "stripped_x3": 70, "labeled": 75, "labeled_gate": 70, "new_plain": 95, "new_labeled_gate": 95}
+test T07 {"evidence_only": 85, "stripped_x1": 80, "stripped_x3": 85, "labeled": 75, "labeled_gate": 80, "new_plain": 95, "new_labeled_gate": 95}
+test T08 {"evidence_only": 60, "stripped_x1": 70, "stripped_x3": 90, "labeled": 70, "labeled_gate": 75, "new_plain": 70, "new_labeled_gate": 70}
+test T09 {"evidence_only": 90, "stripped_x1": 80, "stripped_x3": 90, "labeled": 90, "labeled_gate": 90, "new_plain": 90, "new_labeled_gate": 70}
+test T10 {"evidence_only": 20, "stripped_x1": 95, "stripped_x3": 95, "labeled": 70, "labeled_gate": 70, "new_plain": 95, "new_labeled_gate": 95}
+test T11 {"evidence_only": 30, "stripped_x1": 30, "stripped_x3": 30, "labeled": 30, "labeled_gate": 70, "new_plain": 80, "new_labeled_gate": 70}
+test T12 {"evidence_only": 95, "stripped_x1": 95, "stripped_x3": 95, "labeled": 90, "labeled_gate": 80, "new_plain": 95, "new_labeled_gate": 85}
+test T13 {"evidence_only": 85, "stripped_x1": 60, "stripped_x3": 60, "labeled": 70, "labeled_gate": 50, "new_plain": 95, "new_labeled_gate": 70}
+test T14 {"evidence_only": 95, "stripped_x1": 95, "stripped_x3": 98, "labeled": 90, "labeled_gate": 75, "new_plain": 85, "new_labeled_gate": 95}
+test T15 {"evidence_only": 70, "stripped_x1": 70, "stripped_x3": 70, "labeled": 85, "labeled_gate": 70, "new_plain": 95, "new_labeled_gate": 95}
+test T16 {"evidence_only": 30, "stripped_x1": 30, "stripped_x3": 30, "labeled": 40, "labeled_gate": 80, "new_plain": 90, "new_labeled_gate": 70}
+{
+ "decisions": {
+  "R1_self_confirmation": false,
+  "R2_repetition_amplifies": false,
+  "R3_labeling_reduces": false,
+  "R4_gate_reduces": false,
+  "R5_informative": true,
+  "R5_gate_keeps_new_evidence": true,
+  "H2_verdict": "untestable_no_detectable_inflation"
+ },
+ "baseline": {
+  "mean": 61.562,
+  "min": 10,
+  "max": 95,
+  "at_0_or_100": 0
+ },
+ "arm_means": {
+  "evidence_only": 61.562,
+  "stripped_x1": 66.25,
+  "stripped_x3": 63.625,
+  "labeled": 63.438,
+  "labeled_gate": 67.5,
+  "new_plain": 77.5,
+  "new_labeled_gate": 83.438
+ },
+ "contrasts": {
+  "inflation_stripped_x1": {
+   "n": 16,
+   "mean": 4.6875,
+   "ci95": [
+    -4.6875,
+    16.875
+   ],
+   "n_up": 4,
+   "n_down": 5,
+   "n_zero": 7
+  },
+  "inflation_stripped_x3": {
+   "n": 16,
+   "mean": 2.0625,
+   "ci95": [
+    -8.75,
+    14.75
+   ],
+   "n_up": 3,
+   "n_down": 3,
+   "n_zero": 10
+  },
+  "repetition_x3_minus_x1": {
+   "n": 16,
+   "mean": -2.625,
+   "ci95": [
+    -10.625,
+    3.9375
+   ],
+   "n_up": 5,
+   "n_down": 3,
+   "n_zero": 8
+  },
+  "inflation_labeled": {
+   "n": 16,
+   "mean": 1.875,
+   "ci95": [
+    -4.375,
+    9.6875
+   ],
+   "n_up": 4,
+   "n_down": 6,
+   "n_zero": 6
+  },
+  "inflation_labeled_gate": {
+   "n": 16,
+   "mean": 5.9375,
+   "ci95": [
+    -6.25,
+    18.75
+   ],
+   "n_up": 5,
+   "n_down": 7,
+   "n_zero": 4
+  },
+  "labeling_reduction": {
+   "n": 16,
+   "mean": 2.8125,
+   "ci95": [
+    -3.125,
+    9.6875
+   ],
+   "n_up": 6,
+   "n_down": 4,
+   "n_zero": 6
+  },
+  "gate_reduction": {
+   "n": 16,
+   "mean": -1.25,
+   "ci95": [
+    -11.5625,
+    7.1875
+   ],
+   "n_up": 7,
+   "n_down": 5,
+   "n_zero": 4
+  },
+  "update_new_plain": {
+   "n": 16,
+   "mean": 15.9375,
+   "ci95": [
+    3.4375,
+    30.0
+   ],
+   "n_up": 9,
+   "n_down": 3,
+   "n_zero": 4
+  },
+  "update_new_labeled_gate": {
+   "n": 16,
+   "mean": 21.875,
+   "ci95": [
+    7.1875,
+    37.5
+   ],
+   "n_up": 10,
+   "n_down": 4,
+   "n_zero": 2
+  },
+  "gate_minus_plain_on_new": {
+   "n": 16,
+   "mean": 5.9375,
+   "ci95": [
+    -6.875,
+    22.1875
+   ],
+   "n_up": 5,
+   "n_down": 6,
+   "n_zero": 5
+  }
+ },
+ "processing_failures": 0
+}

@@ -1,0 +1,106 @@
+{
+  "models": {
+    "original": "zora:fast",
+    "replication": "gemma4:12b-it-qat"
+  },
+  "model_digests": {
+    "original": "a92f9fa6055834220446827338ecf10952b65304b2c77295df92bdb3cd22b6a5",
+    "replication": "38044be4f923e5a55264ed7df4eaac2676651a905f735197c504045140c02bd3"
+  },
+  "cases_identical": true,
+  "per_arm": {
+    "stripped_x1": {
+      "n_common": 16,
+      "zora_fast": {
+        "mean_abs_shift": 12.188,
+        "cases_changed": 9,
+        "cases_shift_20_plus": 3
+      },
+      "gemma4": {
+        "mean_abs_shift": 13.75,
+        "cases_changed": 5,
+        "cases_shift_20_plus": 5
+      },
+      "paired_mean_difference_zora_minus_gemma": -1.562,
+      "paired_ci95": [
+        -17.1875,
+        15.0
+      ]
+    },
+    "stripped_x3": {
+      "n_common": 16,
+      "zora_fast": {
+        "mean_abs_shift": 11.438,
+        "cases_changed": 6,
+        "cases_shift_20_plus": 4
+      },
+      "gemma4": {
+        "mean_abs_shift": 17.5,
+        "cases_changed": 7,
+        "cases_shift_20_plus": 6
+      },
+      "paired_mean_difference_zora_minus_gemma": -6.062,
+      "paired_ci95": [
+        -22.3125,
+        10.9375
+      ]
+    },
+    "labeled": {
+      "n_common": 16,
+      "zora_fast": {
+        "mean_abs_shift": 8.75,
+        "cases_changed": 10,
+        "cases_shift_20_plus": 1
+      },
+      "gemma4": {
+        "mean_abs_shift": 9.375,
+        "cases_changed": 4,
+        "cases_shift_20_plus": 4
+      },
+      "paired_mean_difference_zora_minus_gemma": -0.625,
+      "paired_ci95": [
+        -10.9375,
+        9.6875
+      ]
+    },
+    "labeled_gate": {
+      "n_common": 16,
+      "zora_fast": {
+        "mean_abs_shift": 18.438,
+        "cases_changed": 12,
+        "cases_shift_20_plus": 6
+      },
+      "gemma4": {
+        "mean_abs_shift": 9.688,
+        "cases_changed": 5,
+        "cases_shift_20_plus": 3
+      },
+      "paired_mean_difference_zora_minus_gemma": 8.75,
+      "paired_ci95": [
+        -5.625,
+        21.875
+      ]
+    }
+  },
+  "decisions": {
+    "gemma_more_stable_stripped": false,
+    "gemma_more_stable_gate": false
+  },
+  "new_evidence_update": {
+    "zora_fast": {
+      "mean": 15.938,
+      "cases_lowered": 3
+    },
+    "gemma4": {
+      "mean": 19.688,
+      "cases_lowered": 0
+    }
+  },
+  "rules": {
+    "paired_unit": "For each case and arm, d = |shift_zora| - |shift_gemma| (identical cases).",
+    "gemma_more_stable_stripped": "mean |shift| for gemma on stripped_x1 <= 0.5 x the zora:fast value AND the 95% paired bootstrap interval of mean d (stripped_x1) lies above 0",
+    "gemma_more_stable_gate": "same rule for labeled_gate",
+    "bootstrap": "10,000 resamples, seed 20261026",
+    "interpretation": "If neither rule passes, the pilot gives no evidence that the instability is specific to the small model."
+  }
+}

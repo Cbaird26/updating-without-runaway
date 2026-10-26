@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-10-26T03:43:32.079491+00:00",
+  "status": "replication design, secondary outcomes and cross-model comparison fixed before any replication model call",
+  "files": {
+    "compare.py": "8a162a093ca35fb73a4b1a5dec28e4bd6ad8287c7d30e8b1ec7eff0561ae8e21",
+    "PROTOCOL.md": "7dc39b9adf054276cd879402a32053589d47167999a47ff28c47a9b95f479cbd",
+    "protocol.json": "1dc6cc1a6013112ae05e3e40e89f061276dcd5fe9477c572c137a10f7e0520ce",
+    "cases.json": "8861d7cde287d9b10dd8bf6db796c5d0c63fa438bb03246602e6336d0a20fdef",
+    "h2_pilot.py": "7a07b7c6aa0f3e5f73c8b7634ac3577c10dd66da3b315ad4c35211b79b521973",
+    "analyze.py": "3e2efacec005437a73ae72ee8efca2a585ab2ef4e0e5e9e89983868576d1f149"
+  },
+  "identical_to_original": [
+    "cases.json",
+    "h2_pilot.py",
+    "analyze.py"
+  ],
+  "original_run": {
+    "folder": "updating-h2-pilot-2026-10-25",
+    "model": "zora:fast",
+    "test_results_sha256": "b23f1ffb6960fc907de2bc856c72815123d824a871b7780d531516bd0eccdf97",
+    "freeze_sha256": "2c1c40f8c22338c75410549b91e4e70866d9751989ebd1b08dd8f7246021b355"
+  },
+  "decision_rules": {
+    "paired_unit": "For each case and arm, d = |shift_zora| - |shift_gemma| (identical cases).",
+    "gemma_more_stable_stripped": "mean |shift| for gemma on stripped_x1 <= 0.5 x the zora:fast value AND the 95% paired bootstrap interval of mean d (stripped_x1) lies above 0",
+    "gemma_more_stable_gate": "same rule for labeled_gate",
+    "bootstrap": "10,000 resamples, seed 20261026",
+    "interpretation": "If neither rule passes, the pilot gives no evidence that the instability is specific to the small model."
+  }
+}

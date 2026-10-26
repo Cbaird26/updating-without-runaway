@@ -1,0 +1,358 @@
+{
+  "phase": "practice",
+  "completed_at": "2026-10-26T03:50:45.204851+00:00",
+  "calls": 24,
+  "seconds": 271.663,
+  "mechanical_failures": [],
+  "rows": [
+    {
+      "case_id": "P01",
+      "calls": {
+        "summary": {
+          "call": 1,
+          "seconds": 60.589,
+          "response_sha256": "a2220f385e58135f72af0d1e647d16c391258903e6d6593d87633993027a07ac",
+          "input_tokens": 243,
+          "output_tokens": 57,
+          "done_reason": "stop",
+          "content": "{\"note\": \"The Ostler Lane lamp replacement order was listed as closed on 14 April 2026, but the bulletin does not specify if all 18 poles were serviced. The report is based on supervisor claims and not verified by site visits.\"}",
+          "answer": {
+            "note": "The Ostler Lane lamp replacement order was listed as closed on 14 April 2026, but the bulletin does not specify if all 18 poles were serviced. The report is based on supervisor claims and not verified by site visits."
+          }
+        },
+        "evidence_only": {
+          "call": 2,
+          "seconds": 9.483,
+          "response_sha256": "879423960f38adef1cd0b02d5a5dd89b4820a0e44eca73ba680ca76f21748e8d",
+          "input_tokens": 250,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states the order was closed on 14 April 2026 (before the deadline), but it explicitly notes that the bulletin is not checked against site visits and does not record how many poles were actually serviced.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states the order was closed on 14 April 2026 (before the deadline), but it explicitly notes that the bulletin is not checked against site visits and does not record how many poles were actually serviced.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 3,
+          "seconds": 9.549,
+          "response_sha256": "d73943f9206f6f81f67520017181a3e44b1c66ffc08f0c296bba44bcf148845a",
+          "input_tokens": 335,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents confirm the order was closed by 15 April 2026, but they explicitly state that the reports are unverified and do not specify if all 18 poles were actually serviced.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents confirm the order was closed by 15 April 2026, but they explicitly state that the reports are unverified and do not specify if all 18 poles were actually serviced.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 4,
+          "seconds": 11.235,
+          "response_sha256": "3c50b9d77129417a31751cd2ba90b13e7f2d3ea3551fd539864a0d73680c9914",
+          "input_tokens": 508,
+          "output_tokens": 61,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the order was closed on 14 April 2026, which is before the deadline of 15 April. However, they explicitly note that it is unverified whether all 18 poles were actually serviced.\", \"probability\": 70}",
+          "answer": {
+            "reason": "The documents state the order was closed on 14 April 2026, which is before the deadline of 15 April. However, they explicitly note that it is unverified whether all 18 poles were actually serviced.",
+            "probability": 70
+          },
+          "probability": 70
+        },
+        "labeled": {
+          "call": 5,
+          "seconds": 10.691,
+          "response_sha256": "8d67354bc57e64affdff794b87f6d6a14292aad138f5d99d5fb6e2e4bae11488",
+          "input_tokens": 348,
+          "output_tokens": 47,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the order was closed on 14 April 2026, but they explicitly mention that the bulletin does not record how many poles were actually serviced.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state the order was closed on 14 April 2026, but they explicitly mention that the bulletin does not record how many poles were actually serviced.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 6,
+          "seconds": 10.895,
+          "response_sha256": "6ddd3d0b715a34395cad5c85a903f91b25259ded6b94e38f41089e35de3aaf59",
+          "input_tokens": 391,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state the order was closed on 14 April 2026, which is before the deadline. However, they explicitly note that the bulletin does not record how many poles were actually serviced.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state the order was closed on 14 April 2026, which is before the deadline. However, they explicitly note that the bulletin does not record how many poles were actually serviced.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 7,
+          "seconds": 10.618,
+          "response_sha256": "e4842b90f2458cfca2d736d52b5e87bce2d9a31b98ad2ab3d117e0adb7010d78",
+          "input_tokens": 375,
+          "output_tokens": 61,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D1 states the order was closed on 14 April (before the deadline), and D2 confirms all 18 poles were lit by 19 April. While D1 notes reports aren't verified, both documents support completion.\", \"probability\": 90}",
+          "answer": {
+            "reason": "D1 states the order was closed on 14 April (before the deadline), and D2 confirms all 18 poles were lit by 19 April. While D1 notes reports aren't verified, both documents support completion.",
+            "probability": 90
+          },
+          "probability": 90
+        },
+        "new_labeled_gate": {
+          "call": 8,
+          "seconds": 10.113,
+          "response_sha256": "c4954a0973e1bbfb0b450c8488bff983df96ff044ce599f6bb2888aa42e9cc19",
+          "input_tokens": 516,
+          "output_tokens": 59,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"D3 confirms that all 18 streetlights on Ostler Lane were lit by April 19. D1 states the order was closed on April 14, and there is no evidence of any dark poles remaining.\", \"probability\": 100}",
+          "answer": {
+            "reason": "D3 confirms that all 18 streetlights on Ostler Lane were lit by April 19. D1 states the order was closed on April 14, and there is no evidence of any dark poles remaining.",
+            "probability": 100
+          },
+          "probability": 100
+        }
+      },
+      "note": "The Ostler Lane lamp replacement order was listed as closed on 14 April 2026, but the bulletin does not specify if all 18 poles were serviced. The report is based on supervisor claims and not verified by site visits."
+    },
+    {
+      "case_id": "P02",
+      "calls": {
+        "summary": {
+          "call": 9,
+          "seconds": 7.871,
+          "response_sha256": "249a8da5161dae425275bab924b3a131b9072fb87b7c65e144f7e880251c325b",
+          "input_tokens": 255,
+          "output_tokens": 51,
+          "done_reason": "stop",
+          "content": "{\"note\": \"An inspection on 4 June noted missing queen cells and a quiet hive, but it is uncertain if a swarm left. A neighbor reported seeing many bees in the air on 3 June but could not identify the specific hive.\"}",
+          "answer": {
+            "note": "An inspection on 4 June noted missing queen cells and a quiet hive, but it is uncertain if a swarm left. A neighbor reported seeing many bees in the air on 3 June but could not identify the specific hive."
+          }
+        },
+        "evidence_only": {
+          "call": 10,
+          "seconds": 8.041,
+          "response_sha256": "597ad6eb8d79914ef67523545bcded304b849d50ed5a33235e97c22fef58d401",
+          "input_tokens": 262,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document mentions an observer seeing many bees in the air on 3 June, but it does not specify that they were a swarm leaving hive 12; it explicitly states she could not identify the source.\", \"probability\": 0}",
+          "answer": {
+            "reason": "The document mentions an observer seeing many bees in the air on 3 June, but it does not specify that they were a swarm leaving hive 12; it explicitly states she could not identify the source.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "stripped_x1": {
+          "call": 11,
+          "seconds": 7.696,
+          "response_sha256": "7456ed9e52cf34c8c54655548261c94bd5fbe304cd77e0690eb277e95e37a0cd",
+          "input_tokens": 341,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a large number of bees were seen in the air on 3 June, the witness could not identify which hive they came from, making it uncertain if hive 12 was involved.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while a large number of bees were seen in the air on 3 June, the witness could not identify which hive they came from, making it uncertain if hive 12 was involved.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 12,
+          "seconds": 8.663,
+          "response_sha256": "14d6883d0cda81757a5c0957fff1a4430e43777455506a2b93ab7ae016822be3",
+          "input_tokens": 502,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a large number of bees were seen in the air on 3 June, the witness could not identify which hive they came from, making it uncertain if a swarm left hive 12.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while a large number of bees were seen in the air on 3 June, the witness could not identify which hive they came from, making it uncertain if a swarm left hive 12.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 13,
+          "seconds": 7.398,
+          "response_sha256": "2faf6537c86b020fa2acbd8a67ac1634e1565c2987d32f9e13079896b5fc87b5",
+          "input_tokens": 354,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a large number of bees were seen in the air on 3 June, the witness could not identify which hive they came from. There is no confirmation it was hive 12.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while a large number of bees were seen in the air on 3 June, the witness could not identify which hive they came from. There is no confirmation it was hive 12.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 14,
+          "seconds": 8.051,
+          "response_sha256": "d33a62d82bd9a43df5855e9bdd84301e594ec2cba137c57bc97a77fa87dbc051",
+          "input_tokens": 397,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents mention a large number of bees in the air on 3 June, but they do not confirm that these bees came from hive 12. The inspection notes only suggest the queen might be missing.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents mention a large number of bees in the air on 3 June, but they do not confirm that these bees came from hive 12. The inspection notes only suggest the queen might be missing.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 15,
+          "seconds": 8.531,
+          "response_sha256": "1c37fff6232ab4b79a95195d1aacff895d51bfa917a5ae230728950e27c825e0",
+          "input_tokens": 404,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While D2 shows an abrupt weight loss consistent with swarming on 3 June and D1 notes missing queen cells, there is no definitive confirmation that a swarm actually left; it could have been equipment removal.\", \"probability\": 60}",
+          "answer": {
+            "reason": "While D2 shows an abrupt weight loss consistent with swarming on 3 June and D1 notes missing queen cells, there is no definitive confirmation that a swarm actually left; it could have been equipment removal.",
+            "probability": 60
+          },
+          "probability": 60
+        },
+        "new_labeled_gate": {
+          "call": 16,
+          "seconds": 9.989,
+          "response_sha256": "40146959a52ed6a4eebfdcb02ed58f159bc96ad09982f217047f7a510aa3d525",
+          "input_tokens": 539,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"While D3 shows an abrupt weight loss on 3 June consistent with swarming, it notes this could also be due to equipment removal. D1 confirms a neighbor saw bees in the air but couldn't identify the hive.\", \"probability\": 70}",
+          "answer": {
+            "reason": "While D3 shows an abrupt weight loss on 3 June consistent with swarming, it notes this could also be due to equipment removal. D1 confirms a neighbor saw bees in the air but couldn't identify the hive.",
+            "probability": 70
+          },
+          "probability": 70
+        }
+      },
+      "note": "An inspection on 4 June noted missing queen cells and a quiet hive, but it is uncertain if a swarm left. A neighbor reported seeing many bees in the air on 3 June but could not identify the specific hive."
+    },
+    {
+      "case_id": "P03",
+      "calls": {
+        "summary": {
+          "call": 17,
+          "seconds": 8.439,
+          "response_sha256": "f990f0fa0abe271d5177390c8706e6638ecc25e6c8903dc3288822c549baf6c7",
+          "input_tokens": 281,
+          "output_tokens": 67,
+          "done_reason": "stop",
+          "content": "{\"note\": \"A scan for parcel 44-7712 was logged as an attempted delivery on 12 March, but the location stamp places it 2.4 kilometres from Pellow Court. The driver has not been interviewed, and the recipient claims she was home all afternoon with no calling card.\"}",
+          "answer": {
+            "note": "A scan for parcel 44-7712 was logged as an attempted delivery on 12 March, but the location stamp places it 2.4 kilometres from Pellow Court. The driver has not been interviewed, and the recipient claims she was home all afternoon with no calling card."
+          }
+        },
+        "evidence_only": {
+          "call": 18,
+          "seconds": 8.606,
+          "response_sha256": "90782f7e93c8b70e1bb352182de67695cf79b3385ee8df14b03f738277fb71ce",
+          "input_tokens": 288,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states that while a scan was logged as an attempted delivery, the location stamp was 2.4 kilometres away from the address. However, it notes the driver has not yet been interviewed to confirm.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states that while a scan was logged as an attempted delivery, the location stamp was 2.4 kilometres away from the address. However, it notes the driver has not yet been interviewed to confirm.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x1": {
+          "call": 19,
+          "seconds": 8.506,
+          "response_sha256": "5ac89449637ffcf01af7c08ab782a836c61d17d5b82f4bcb499ea9d48b4d0793",
+          "input_tokens": 383,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state that while a scan was logged as an attempted delivery, the location stamp is 2.4 km away and the driver hasn't been interviewed, making it uncertain if a physical attempt actually occurred.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state that while a scan was logged as an attempted delivery, the location stamp is 2.4 km away and the driver hasn't been interviewed, making it uncertain if a physical attempt actually occurred.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "stripped_x3": {
+          "call": 20,
+          "seconds": 7.861,
+          "response_sha256": "d8ec521c29b4b72533557c8ff2fa8e74bffb671fd04ed5c7818b5fe4dd9dece3",
+          "input_tokens": 576,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents state a scan was logged as an attempted delivery, but the location stamp is 2.4 km away and the driver hasn't been interviewed to confirm if a physical attempt actually occurred.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents state a scan was logged as an attempted delivery, but the location stamp is 2.4 km away and the driver hasn't been interviewed to confirm if a physical attempt actually occurred.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled": {
+          "call": 21,
+          "seconds": 9.732,
+          "response_sha256": "8b176b08579096b53b9ba972a293d5e9c45643260f62ffe0a884bac02fab21c1",
+          "input_tokens": 396,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents indicate a scan was logged as an attempted delivery, but the location stamp is inconsistent (2.4km away) and the driver hasn't been interviewed to confirm if a physical attempt actually occurred.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The documents indicate a scan was logged as an attempted delivery, but the location stamp is inconsistent (2.4km away) and the driver hasn't been interviewed to confirm if a physical attempt actually occurred.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "labeled_gate": {
+          "call": 22,
+          "seconds": 8.492,
+          "response_sha256": "577c3d01f4dd91c48abed435c7abe5b570380b0b4da9d28a93a855471b3b30d6",
+          "input_tokens": 439,
+          "output_tokens": 50,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The document states a scan was logged as an attempted delivery, but notes the location stamp is likely incorrect due to satellite issues and the driver hasn't been interviewed. The evidence is inconclusive.\", \"probability\": 50}",
+          "answer": {
+            "reason": "The document states a scan was logged as an attempted delivery, but notes the location stamp is likely incorrect due to satellite issues and the driver hasn't been interviewed. The evidence is inconclusive.",
+            "probability": 50
+          },
+          "probability": 50
+        },
+        "new_plain": {
+          "call": 23,
+          "seconds": 11.395,
+          "response_sha256": "8b9875bc100459fee8355a5134ce3bdc0a8570ef8e3abc8e3d93400d3d97954e",
+          "input_tokens": 423,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"Document D1 notes a scan was logged as an attempted delivery, but its location stamp is 2.4km away from the address. Document D2 shows no courier entered via the main door or lobby.\", \"probability\": 90}",
+          "answer": {
+            "reason": "Document D1 notes a scan was logged as an attempted delivery, but its location stamp is 2.4km away from the address. Document D2 shows no courier entered via the main door or lobby.",
+            "probability": 90
+          },
+          "probability": 90
+        },
+        "new_labeled_gate": {
+          "call": 24,
+          "seconds": 9.008,
+          "response_sha256": "8c18d9aca2bb347db446d831dffb6c4c87f5ae25c23841d8819b8a1542ff1652",
+          "input_tokens": 574,
+          "output_tokens": 55,
+          "done_reason": "stop",
+          "content": "{\"reason\": \"The documents show a scan was logged as an attempted delivery, but the location stamp is 2.4km away, the recipient claims no visit occurred, and security footage shows no courier entering via standard access points.\", \"probability\": 90}",
+          "answer": {
+            "reason": "The documents show a scan was logged as an attempted delivery, but the location stamp is 2.4km away, the recipient claims no visit occurred, and security footage shows no courier entering via standard access points.",
+            "probability": 90
+          },
+          "probability": 90
+        }
+      },
+      "note": "A scan for parcel 44-7712 was logged as an attempted delivery on 12 March, but the location stamp places it 2.4 kilometres from Pellow Court. The driver has not been interviewed, and the recipient claims she was home all afternoon with no calling card."
+    }
+  ],
+  "note": "Mechanical check only; not analyzed."
+}

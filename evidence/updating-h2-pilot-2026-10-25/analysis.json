@@ -1,0 +1,372 @@
+{
+  "protocol_version": "1.0",
+  "model": {
+    "name": "zora:fast",
+    "digest": "a92f9fa6055834220446827338ecf10952b65304b2c77295df92bdb3cd22b6a5",
+    "size": 6022245282,
+    "details": {
+      "parent_model": "ministral-3:8b",
+      "format": "gguf",
+      "family": "mistral3",
+      "families": [
+        "mistral3"
+      ],
+      "parameter_size": "8.9B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 262144,
+      "embedding_length": 4096
+    }
+  },
+  "test_complete": true,
+  "test_calls": 128,
+  "test_seconds": 722.291,
+  "cases_run": 16,
+  "contrasts": {
+    "inflation_stripped_x1": {
+      "arms": "stripped_x1 - evidence_only",
+      "n": 16,
+      "dropped": [],
+      "mean": 4.6875,
+      "median": 0.0,
+      "ci95": [
+        -4.6875,
+        16.875
+      ],
+      "n_up": 4,
+      "n_down": 5,
+      "n_zero": 7,
+      "per_case": {
+        "T01": -10,
+        "T02": 0,
+        "T03": 40,
+        "T04": -10,
+        "T05": 0,
+        "T06": 10,
+        "T07": -5,
+        "T08": 10,
+        "T09": -10,
+        "T10": 75,
+        "T11": 0,
+        "T12": 0,
+        "T13": -25,
+        "T14": 0,
+        "T15": 0,
+        "T16": 0
+      }
+    },
+    "inflation_stripped_x3": {
+      "arms": "stripped_x3 - evidence_only",
+      "n": 16,
+      "dropped": [],
+      "mean": 2.0625,
+      "median": 0.0,
+      "ci95": [
+        -8.75,
+        14.75
+      ],
+      "n_up": 3,
+      "n_down": 3,
+      "n_zero": 10,
+      "per_case": {
+        "T01": -45,
+        "T02": 0,
+        "T03": 0,
+        "T04": 0,
+        "T05": 0,
+        "T06": -5,
+        "T07": 0,
+        "T08": 30,
+        "T09": 0,
+        "T10": 75,
+        "T11": 0,
+        "T12": 0,
+        "T13": -25,
+        "T14": 3,
+        "T15": 0,
+        "T16": 0
+      }
+    },
+    "repetition_x3_minus_x1": {
+      "arms": "stripped_x3 - stripped_x1",
+      "n": 16,
+      "dropped": [],
+      "mean": -2.625,
+      "median": 0.0,
+      "ci95": [
+        -10.625,
+        3.9375
+      ],
+      "n_up": 5,
+      "n_down": 3,
+      "n_zero": 8,
+      "per_case": {
+        "T01": -35,
+        "T02": 0,
+        "T03": -40,
+        "T04": 10,
+        "T05": 0,
+        "T06": -15,
+        "T07": 5,
+        "T08": 20,
+        "T09": 10,
+        "T10": 0,
+        "T11": 0,
+        "T12": 0,
+        "T13": 0,
+        "T14": 3,
+        "T15": 0,
+        "T16": 0
+      }
+    },
+    "inflation_labeled": {
+      "arms": "labeled - evidence_only",
+      "n": 16,
+      "dropped": [],
+      "mean": 1.875,
+      "median": 0.0,
+      "ci95": [
+        -4.375,
+        9.6875
+      ],
+      "n_up": 4,
+      "n_down": 6,
+      "n_zero": 6,
+      "per_case": {
+        "T01": -10,
+        "T02": 0,
+        "T03": 0,
+        "T04": -10,
+        "T05": 0,
+        "T06": 0,
+        "T07": -10,
+        "T08": 10,
+        "T09": 0,
+        "T10": 50,
+        "T11": 0,
+        "T12": -5,
+        "T13": -15,
+        "T14": -5,
+        "T15": 15,
+        "T16": 10
+      }
+    },
+    "inflation_labeled_gate": {
+      "arms": "labeled_gate - evidence_only",
+      "n": 16,
+      "dropped": [],
+      "mean": 5.9375,
+      "median": 0.0,
+      "ci95": [
+        -6.25,
+        18.75
+      ],
+      "n_up": 5,
+      "n_down": 7,
+      "n_zero": 4,
+      "per_case": {
+        "T01": -15,
+        "T02": -5,
+        "T03": 40,
+        "T04": 0,
+        "T05": 0,
+        "T06": -5,
+        "T07": -5,
+        "T08": 15,
+        "T09": 0,
+        "T10": 50,
+        "T11": 40,
+        "T12": -15,
+        "T13": -35,
+        "T14": -20,
+        "T15": 0,
+        "T16": 50
+      }
+    },
+    "labeling_reduction": {
+      "arms": "stripped_x1 - labeled",
+      "n": 16,
+      "dropped": [],
+      "mean": 2.8125,
+      "median": 0.0,
+      "ci95": [
+        -3.125,
+        9.6875
+      ],
+      "n_up": 6,
+      "n_down": 4,
+      "n_zero": 6,
+      "per_case": {
+        "T01": 0,
+        "T02": 0,
+        "T03": 40,
+        "T04": 0,
+        "T05": 0,
+        "T06": 10,
+        "T07": 5,
+        "T08": 0,
+        "T09": -10,
+        "T10": 25,
+        "T11": 0,
+        "T12": 5,
+        "T13": -10,
+        "T14": 5,
+        "T15": -15,
+        "T16": -10
+      }
+    },
+    "gate_reduction": {
+      "arms": "stripped_x1 - labeled_gate",
+      "n": 16,
+      "dropped": [],
+      "mean": -1.25,
+      "median": 0.0,
+      "ci95": [
+        -11.5625,
+        7.1875
+      ],
+      "n_up": 7,
+      "n_down": 5,
+      "n_zero": 4,
+      "per_case": {
+        "T01": 5,
+        "T02": 5,
+        "T03": 0,
+        "T04": -10,
+        "T05": 0,
+        "T06": 15,
+        "T07": 0,
+        "T08": -5,
+        "T09": -10,
+        "T10": 25,
+        "T11": -40,
+        "T12": 15,
+        "T13": 10,
+        "T14": 20,
+        "T15": 0,
+        "T16": -50
+      }
+    },
+    "update_new_plain": {
+      "arms": "new_plain - evidence_only",
+      "n": 16,
+      "dropped": [],
+      "mean": 15.9375,
+      "median": 10.0,
+      "ci95": [
+        3.4375,
+        30.0
+      ],
+      "n_up": 9,
+      "n_down": 3,
+      "n_zero": 4,
+      "per_case": {
+        "T01": 0,
+        "T02": -5,
+        "T03": -30,
+        "T04": 40,
+        "T05": 0,
+        "T06": 20,
+        "T07": 10,
+        "T08": 10,
+        "T09": 0,
+        "T10": 75,
+        "T11": 50,
+        "T12": 0,
+        "T13": 10,
+        "T14": -10,
+        "T15": 25,
+        "T16": 60
+      }
+    },
+    "update_new_labeled_gate": {
+      "arms": "new_labeled_gate - evidence_only",
+      "n": 16,
+      "dropped": [],
+      "mean": 21.875,
+      "median": 15.0,
+      "ci95": [
+        7.1875,
+        37.5
+      ],
+      "n_up": 10,
+      "n_down": 4,
+      "n_zero": 2,
+      "per_case": {
+        "T01": -15,
+        "T02": 0,
+        "T03": 55,
+        "T04": 75,
+        "T05": 60,
+        "T06": 20,
+        "T07": 10,
+        "T08": 10,
+        "T09": -20,
+        "T10": 75,
+        "T11": 40,
+        "T12": -10,
+        "T13": -15,
+        "T14": 0,
+        "T15": 25,
+        "T16": 40
+      }
+    },
+    "gate_minus_plain_on_new": {
+      "arms": "new_labeled_gate - new_plain",
+      "n": 16,
+      "dropped": [],
+      "mean": 5.9375,
+      "median": 0.0,
+      "ci95": [
+        -6.875,
+        22.1875
+      ],
+      "n_up": 5,
+      "n_down": 6,
+      "n_zero": 5,
+      "per_case": {
+        "T01": -15,
+        "T02": 5,
+        "T03": 85,
+        "T04": 35,
+        "T05": 60,
+        "T06": 0,
+        "T07": 0,
+        "T08": 0,
+        "T09": -20,
+        "T10": 0,
+        "T11": -10,
+        "T12": -10,
+        "T13": -25,
+        "T14": 10,
+        "T15": 0,
+        "T16": -20
+      }
+    }
+  },
+  "baseline_evidence_only": {
+    "mean": 61.562,
+    "min": 10,
+    "max": 95,
+    "at_0_or_100": 0
+  },
+  "arm_means": {
+    "evidence_only": 61.562,
+    "stripped_x1": 66.25,
+    "stripped_x3": 63.625,
+    "labeled": 63.438,
+    "labeled_gate": 67.5,
+    "new_plain": 77.5,
+    "new_labeled_gate": 83.438
+  },
+  "processing_failures": 0,
+  "decisions": {
+    "R1_self_confirmation": false,
+    "R2_repetition_amplifies": false,
+    "R3_labeling_reduces": false,
+    "R4_gate_reduces": false,
+    "R5_informative": true,
+    "R5_gate_keeps_new_evidence": true,
+    "H2_verdict": "untestable_no_detectable_inflation"
+  },
+  "scope": "One local model, 16 AI-authored fictional cases, stated probabilities only. A pilot of the mechanism, not a general estimate for language models, people or deployed systems. No physical evidence."
+}

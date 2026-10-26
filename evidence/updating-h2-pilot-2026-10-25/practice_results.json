@@ -1,0 +1,358 @@
+{
+  "phase": "practice",
+  "completed_at": "2026-10-26T03:19:32.910172+00:00",
+  "calls": 24,
+  "seconds": 144.745,
+  "mechanical_failures": [],
+  "rows": [
+    {
+      "case_id": "P01",
+      "calls": {
+        "summary": {
+          "call": 1,
+          "seconds": 32.886,
+          "response_sha256": "0e5f457e779e03537bcb0bbe8a20f5c6b0005e792b327c5ac9682e67f1e3c5d8",
+          "input_tokens": 243,
+          "output_tokens": 47,
+          "done_reason": "stop",
+          "content": "{\n  \"note\": \"**No direct confirmation** of all 18 poles replaced by 15 April; bulletin (14 Apr) only notes order closure without pole count verification. Past discrepancies suggest incomplete reporting.\"\n}",
+          "answer": {
+            "note": "**No direct confirmation** of all 18 poles replaced by 15 April; bulletin (14 Apr) only notes order closure without pole count verification. Past discrepancies suggest incomplete reporting."
+          }
+        },
+        "evidence_only": {
+          "call": 2,
+          "seconds": 4.906,
+          "response_sha256": "c73ecc564b3f32293c784f1c02aaa48e08ba24c5fba50b8bd8c1a94eb6fb35d3",
+          "input_tokens": 251,
+          "output_tokens": 34,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Bulletin states order was closed but lacks verification details; past errors suggest incomplete work.\",\n  \"probability\": 30\n}",
+          "answer": {
+            "reason": "Bulletin states order was closed but lacks verification details; past errors suggest incomplete work.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "stripped_x1": {
+          "call": 3,
+          "seconds": 4.098,
+          "response_sha256": "b5d0a06b804208c0b3c7df84be68a784c652c576c4065b0fcdcfa5013845ca76",
+          "input_tokens": 326,
+          "output_tokens": 40,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Bulletin states order closed but lacks explicit confirmation of all 18 poles and past errors indicate unreliability.\",\n  \"probability\": 30\n}",
+          "answer": {
+            "reason": "Bulletin states order closed but lacks explicit confirmation of all 18 poles and past errors indicate unreliability.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "stripped_x3": {
+          "call": 4,
+          "seconds": 4.45,
+          "response_sha256": "099534000054f85b8981c3aed23d9716676b98d7244162e91ccc881c36cdd0ea",
+          "input_tokens": 479,
+          "output_tokens": 40,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Bulletins lack explicit verification of all 18 poles, and past orders had unresolved discrepancies despite reported closures.\",\n  \"probability\": 30\n}",
+          "answer": {
+            "reason": "Bulletins lack explicit verification of all 18 poles, and past orders had unresolved discrepancies despite reported closures.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "labeled": {
+          "call": 5,
+          "seconds": 3.931,
+          "response_sha256": "aa7a7468ef8feb4a5ce5f4034bbd9171590e50c108bbdb643a4294822ae9e6b6",
+          "input_tokens": 338,
+          "output_tokens": 37,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Bulletin lacks explicit pole count verification, and past orders had unconfirmed completions despite claims.\",\n  \"probability\": 30\n}",
+          "answer": {
+            "reason": "Bulletin lacks explicit pole count verification, and past orders had unconfirmed completions despite claims.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "labeled_gate": {
+          "call": 6,
+          "seconds": 4.249,
+          "response_sha256": "9b2281c3e1689cbc30b47618a880a44ec730e33a89797cd158358b23274e1f02",
+          "input_tokens": 381,
+          "output_tokens": 36,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Bulletin lacks explicit pole count verification, and past errors indicate unreliability in reporting completion.\",\n  \"probability\": 30\n}",
+          "answer": {
+            "reason": "Bulletin lacks explicit pole count verification, and past errors indicate unreliability in reporting completion.",
+            "probability": 30
+          },
+          "probability": 30
+        },
+        "new_plain": {
+          "call": 7,
+          "seconds": 5.171,
+          "response_sha256": "d04498d453220b2baae8b4823b5a9cdcf56b10a0a9a5e13894936a75a6162ad7",
+          "input_tokens": 379,
+          "output_tokens": 54,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Bulletin reports completion but lacks verification; residents confirm all 18 lit on 19 April (5 days later), with minor flicker noted. No evidence of incomplete work.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "Bulletin reports completion but lacks verification; residents confirm all 18 lit on 19 April (5 days later), with minor flicker noted. No evidence of incomplete work.",
+            "probability": 70
+          },
+          "probability": 70
+        },
+        "new_labeled_gate": {
+          "call": 8,
+          "seconds": 5.649,
+          "response_sha256": "a544ccfe3ef9128482b57eacc6bb059fece5034ee366eb68012b15fcbdca480b",
+          "input_tokens": 509,
+          "output_tokens": 49,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Residents confirmed all 18 lights lit on **19 April**, but the bulletin lacks verification. Past discrepancies reduce confidence despite lack of direct contradiction.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "Residents confirmed all 18 lights lit on **19 April**, but the bulletin lacks verification. Past discrepancies reduce confidence despite lack of direct contradiction.",
+            "probability": 70
+          },
+          "probability": 70
+        }
+      },
+      "note": "**No direct confirmation** of all 18 poles replaced by 15 April; bulletin (14 Apr) only notes order closure without pole count verification. Past discrepancies suggest incomplete reporting."
+    },
+    {
+      "case_id": "P02",
+      "calls": {
+        "summary": {
+          "call": 9,
+          "seconds": 7.008,
+          "response_sha256": "7a73b3be366661bf906dd31480edd416353d55150194509000918a4e758414cc",
+          "input_tokens": 257,
+          "output_tokens": 70,
+          "done_reason": "stop",
+          "content": "{\n  \"note\": \"**No direct confirmation** of swarm departure from hive 12 on **3 June 2026**. Indirect evidence: reduced activity, capped queen cells (swarming signs), and a nearby witness reporting bees in the air that day. Queen’s absence unconfirmed due to incomplete inspection.\"\n}",
+          "answer": {
+            "note": "**No direct confirmation** of swarm departure from hive 12 on **3 June 2026**. Indirect evidence: reduced activity, capped queen cells (swarming signs), and a nearby witness reporting bees in the air that day. Queen’s absence unconfirmed due to incomplete inspection."
+          }
+        },
+        "evidence_only": {
+          "call": 10,
+          "seconds": 7.464,
+          "response_sha256": "f5a0dcc3c823606561c8dd82e0726f5199c2cb97e1c596bb993f428135b64f70",
+          "input_tokens": 265,
+          "output_tokens": 59,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"The log mentions bees leaving hive 12 around **3 June** (allotment sighting) and notes queen cells, suggesting swarming activity. No direct confirmation, but strong circumstantial evidence.\",\n  \"probability\": 85\n}",
+          "answer": {
+            "reason": "The log mentions bees leaving hive 12 around **3 June** (allotment sighting) and notes queen cells, suggesting swarming activity. No direct confirmation, but strong circumstantial evidence.",
+            "probability": 85
+          },
+          "probability": 85
+        },
+        "stripped_x1": {
+          "call": 11,
+          "seconds": 4.887,
+          "response_sha256": "60662cee153942c5c02ad81592dc5dd5b60fcbb97f521cbe718965c726366f41",
+          "input_tokens": 363,
+          "output_tokens": 42,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Indirect evidence (queen cells, reduced activity, witness report) strongly suggests swarming, but no direct confirmation exists.\",\n  \"probability\": 85\n}",
+          "answer": {
+            "reason": "Indirect evidence (queen cells, reduced activity, witness report) strongly suggests swarming, but no direct confirmation exists.",
+            "probability": 85
+          },
+          "probability": 85
+        },
+        "stripped_x3": {
+          "call": 12,
+          "seconds": 4.382,
+          "response_sha256": "96f5c95ddd710147ba92a9ecf3e684f755315c3463afd55a3f1ff0d534c27b7e",
+          "input_tokens": 562,
+          "output_tokens": 42,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Indirect evidence (queen cells, reduced activity, witness report) strongly suggests swarming, but no direct confirmation exists.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "Indirect evidence (queen cells, reduced activity, witness report) strongly suggests swarming, but no direct confirmation exists.",
+            "probability": 70
+          },
+          "probability": 70
+        },
+        "labeled": {
+          "call": 13,
+          "seconds": 4.281,
+          "response_sha256": "4b3b36814e6af132dae01914444685900160195e61134c4fd7e0d0226aefb08e",
+          "input_tokens": 375,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Indirect evidence (queen cells, reduced activity, witness report) suggests swarm activity but lacks direct confirmation of departure from hive 12 on 3 June.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "Indirect evidence (queen cells, reduced activity, witness report) suggests swarm activity but lacks direct confirmation of departure from hive 12 on 3 June.",
+            "probability": 70
+          },
+          "probability": 70
+        },
+        "labeled_gate": {
+          "call": 14,
+          "seconds": 4.786,
+          "response_sha256": "5ddabefef4a1480e7ac4393bcf20aa6d728c07487c90101e1a76d0ebe650668e",
+          "input_tokens": 418,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Indirect evidence (queen cells, reduced activity, witness report) suggests swarm activity around hive 12 on 3 June, but no direct confirmation exists.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "Indirect evidence (queen cells, reduced activity, witness report) suggests swarm activity around hive 12 on 3 June, but no direct confirmation exists.",
+            "probability": 70
+          },
+          "probability": 70
+        },
+        "new_plain": {
+          "call": 15,
+          "seconds": 5.554,
+          "response_sha256": "5bcb648e5a225ea9f7b862d23694bfc3bb26cf96b5cf4537ba4c59eba4e7ba5a",
+          "input_tokens": 416,
+          "output_tokens": 59,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Both documents mention bees leaving hive 12 on **3 June**—one via eyewitness report (D1) and one via abrupt weight loss (D2). No contradictory evidence is present.\",\n  \"probability\": 95\n}",
+          "answer": {
+            "reason": "Both documents mention bees leaving hive 12 on **3 June**—one via eyewitness report (D1) and one via abrupt weight loss (D2). No contradictory evidence is present.",
+            "probability": 95
+          },
+          "probability": 95
+        },
+        "new_labeled_gate": {
+          "call": 16,
+          "seconds": 5.296,
+          "response_sha256": "40760a8472e85c31a1ec0d2fc2997ad0508ee2cd44e3ff7653ba8be37d48c988",
+          "input_tokens": 569,
+          "output_tokens": 52,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Telemetry (D3) shows an abrupt weight loss consistent with swarming on 3 June. Indirect witness report (D1) supports activity but lacks direct confirmation.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "Telemetry (D3) shows an abrupt weight loss consistent with swarming on 3 June. Indirect witness report (D1) supports activity but lacks direct confirmation.",
+            "probability": 70
+          },
+          "probability": 70
+        }
+      },
+      "note": "**No direct confirmation** of swarm departure from hive 12 on **3 June 2026**. Indirect evidence: reduced activity, capped queen cells (swarming signs), and a nearby witness reporting bees in the air that day. Queen’s absence unconfirmed due to incomplete inspection."
+    },
+    {
+      "case_id": "P03",
+      "calls": {
+        "summary": {
+          "call": 17,
+          "seconds": 5.075,
+          "response_sha256": "0768d7f06c936e3a9da35bb74b585592cc3b562f075c05091476272c773b996c",
+          "input_tokens": 273,
+          "output_tokens": 53,
+          "done_reason": "stop",
+          "content": "{\n  \"note\": \"**Claim denied**: Delivery attempt logged (14:12) but likely mislocated (2.4 km from address). GPS error suspected; driver statement pending. Recipient’s absence corroborates no in-person visit.\"\n}",
+          "answer": {
+            "note": "**Claim denied**: Delivery attempt logged (14:12) but likely mislocated (2.4 km from address). GPS error suspected; driver statement pending. Recipient’s absence corroborates no in-person visit."
+          }
+        },
+        "evidence_only": {
+          "call": 18,
+          "seconds": 4.596,
+          "response_sha256": "12cf14f669a519c2ee6bb2e738ea74b4e50045024c442f792d8bd7d681e8ef38",
+          "input_tokens": 281,
+          "output_tokens": 48,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"The case note confirms an attempted delivery log near the depot (not Pellow Court) but acknowledges possible location errors; no direct denial of an attempt exists.\",\n  \"probability\": 70\n}",
+          "answer": {
+            "reason": "The case note confirms an attempted delivery log near the depot (not Pellow Court) but acknowledges possible location errors; no direct denial of an attempt exists.",
+            "probability": 70
+          },
+          "probability": 70
+        },
+        "stripped_x1": {
+          "call": 19,
+          "seconds": 4.764,
+          "response_sha256": "eae43292b691a461fdf3c4934a87803640e79f6e3d07388076d21577cc149557",
+          "input_tokens": 362,
+          "output_tokens": 46,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Documents confirm a logged delivery attempt near the date/time, though location data is unreliable due to GPS issues. No direct evidence contradicts the claim.\",\n  \"probability\": 80\n}",
+          "answer": {
+            "reason": "Documents confirm a logged delivery attempt near the date/time, though location data is unreliable due to GPS issues. No direct evidence contradicts the claim.",
+            "probability": 80
+          },
+          "probability": 80
+        },
+        "stripped_x3": {
+          "call": 20,
+          "seconds": 3.456,
+          "response_sha256": "ebd28cf033933f7ece3ea8bc16a8e4940349cd01d288d9bf96c62df89350a03a",
+          "input_tokens": 527,
+          "output_tokens": 39,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"All documents explicitly deny the claim, citing a logged delivery attempt with GPS location error and recipient's absence confirmation.\",\n  \"probability\": 10\n}",
+          "answer": {
+            "reason": "All documents explicitly deny the claim, citing a logged delivery attempt with GPS location error and recipient's absence confirmation.",
+            "probability": 10
+          },
+          "probability": 10
+        },
+        "labeled": {
+          "call": 21,
+          "seconds": 3.584,
+          "response_sha256": "d3b434babf21db26a39684db0f9ab8b74e18b3cc82f35d30f9c1a5a0ef9e9fd8",
+          "input_tokens": 374,
+          "output_tokens": 43,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"D1 confirms a logged delivery attempt with GPS discrepancy and recipient's absence, while D2 explicitly denies the claim based on these details.\",\n  \"probability\": 0\n}",
+          "answer": {
+            "reason": "D1 confirms a logged delivery attempt with GPS discrepancy and recipient's absence, while D2 explicitly denies the claim based on these details.",
+            "probability": 0
+          },
+          "probability": 0
+        },
+        "labeled_gate": {
+          "call": 22,
+          "seconds": 4.566,
+          "response_sha256": "362ee7e0fb5bb8eceaa91bef0108f191fa0eeda57ac2f841d239e19ee5c868a6",
+          "input_tokens": 417,
+          "output_tokens": 42,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"Handheld scan logged a delivery attempt near the depot, not at Pellow Court, with GPS error likely causing location discrepancy.\",\n  \"probability\": 95\n}",
+          "answer": {
+            "reason": "Handheld scan logged a delivery attempt near the depot, not at Pellow Court, with GPS error likely causing location discrepancy.",
+            "probability": 95
+          },
+          "probability": 95
+        },
+        "new_plain": {
+          "call": 23,
+          "seconds": 4.579,
+          "response_sha256": "c1914ae02a7d7335afeec59400c1240850ccdfe81b78244ca5fb6eef7e1bc1a6",
+          "input_tokens": 418,
+          "output_tokens": 41,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"No confirmed delivery attempt at Pellow Court; location error possible but unlikely to explain absence of entry logs/camera evidence.\",\n  \"probability\": 95\n}",
+          "answer": {
+            "reason": "No confirmed delivery attempt at Pellow Court; location error possible but unlikely to explain absence of entry logs/camera evidence.",
+            "probability": 95
+          },
+          "probability": 95
+        },
+        "new_labeled_gate": {
+          "call": 24,
+          "seconds": 5.03,
+          "response_sha256": "ced7f137badb0c25cb95321f15d4213cf9c53f6884aaa9b7b1e7ba0e845eebe6",
+          "input_tokens": 554,
+          "output_tokens": 58,
+          "done_reason": "stop",
+          "content": "{\n  \"reason\": \"D1 confirms a logged attempt but mislocated; D3’s security logs (no entry attempts) strongly contradict an in-person visit. GPS error plausible but doesn’t negate absence of physical delivery.\",\n  \"probability\": 95\n}",
+          "answer": {
+            "reason": "D1 confirms a logged attempt but mislocated; D3’s security logs (no entry attempts) strongly contradict an in-person visit. GPS error plausible but doesn’t negate absence of physical delivery.",
+            "probability": 95
+          },
+          "probability": 95
+        }
+      },
+      "note": "**Claim denied**: Delivery attempt logged (14:12) but likely mislocated (2.4 km from address). GPS error suspected; driver statement pending. Recipient’s absence corroborates no in-person visit."
+    }
+  ],
+  "note": "Mechanical check only; not analyzed."
+}
